@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<!-- saved from url=(0189)https://codex-inline-visualization-e1990fbbad722dd4.web-sandbox.oaiusercontent.com/?app=skybridge&locale=ca-ES&deviceType=desktop&unsafeSkipTargetOriginCheck=true&backgroundMode=transparent -->
+<html lang="ca-ES" class="transparentSkybridgeBackground desktopSkybridge dark" data-theme="dark" style="color-scheme: dark; --safe-area-inset-top: 0px; --safe-area-inset-bottom: 0px; --safe-area-inset-left: 0px; --safe-area-inset-right: 0px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>@layer sandbox-defaults{html,body,#root{margin:0;padding:0}}</style>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CarnotLab · Tutor de màquines tèrmiques</title>
+<style>
+:root{--ink:#17324d;--muted:#5f7182;--bg:#f3f7fa;--card:#fff;--line:#dbe5ec;--teal:#087f8c;--teal-light:#e7f6f6;--gold:#b76e00;--gold-light:#fff5df;--green:#247447;--red:#b33a3a;--shadow:0 8px 26px rgba(23,50,77,.08)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+header{background:linear-gradient(120deg,#12314d,#087f8c);color:white;padding:28px 20px 34px}
+.wrap{max-width:1100px;margin:auto}header .eyebrow{font-size:.78rem;letter-spacing:.13em;text-transform:uppercase;opacity:.85;font-weight:700}h1{font-size:clamp(2rem,4vw,3rem);margin:.25rem 0 .35rem;line-height:1.1}header p{margin:0;max-width:700px;color:#e7f5f7}
+main{max-width:1000px;margin:-15px auto 50px;padding:0 16px;display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:20px;min-width:0}
+h2{font-size:1.2rem;margin:0 0 12px}h3{font-size:1.04rem;margin:0 0 8px}.muted{color:var(--muted)}.small{font-size:.9rem}
+label{display:block;font-weight:700;font-size:.92rem;margin:15px 0 6px}select,input{width:100%;padding:11px 12px;border:1px solid #bdccd8;border-radius:10px;font:inherit;color:var(--ink);background:white}button{font:inherit;cursor:pointer;border:0;border-radius:10px;padding:10px 14px;font-weight:700;transition:transform .12s,filter .12s}button:hover{filter:brightness(.97)}button:active{transform:translateY(1px)}.primary{background:var(--teal);color:white}.secondary{background:#e9f0f5;color:var(--ink)}.gold{background:var(--gold-light);color:#704600;border:1px solid #f0d28e}.full{width:100%;margin-top:12px}
+.radio-list{display:grid;gap:8px}.radio-option{border:1px solid var(--line);border-radius:12px;padding:10px 12px;display:flex;gap:9px;align-items:flex-start;cursor:pointer}.radio-option:has(input:checked){border-color:var(--teal);background:var(--teal-light)}.radio-option input{width:auto;margin-top:5px}.radio-option strong{display:block}.radio-option small{display:block;color:var(--muted);font-weight:400}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.pill{font-size:.82rem;border-radius:99px;background:#edf3f7;padding:4px 10px;color:#425c70;font-weight:700}
+.problem{background:#f6fafc;border:1px solid var(--line);padding:15px;border-radius:13px;margin-bottom:18px}.problem p{margin:6px 0}.problem strong{color:var(--teal)}
+.section-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}.step{border:1px solid var(--line);border-radius:14px;padding:16px;margin:12px 0;background:white}.step-num{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--teal-light);color:var(--teal);font-weight:800;margin-right:7px}.equation{font-family:Georgia,"Times New Roman",serif;font-size:1.25rem;text-align:center;background:#f5f8fb;border-radius:10px;padding:13px 8px;margin:10px 0;overflow-wrap:anywhere}.defs{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:8px;margin:10px 0}.def{border:1px solid var(--line);border-radius:9px;padding:9px 10px;font-size:.92rem}.def b{color:var(--teal)}.substitution{padding:10px 12px;border-left:3px solid var(--teal);background:#f2f9f9;border-radius:0 9px 9px 0;margin:10px 0}.result{font-weight:800;color:var(--green)}.why{margin-top:10px}.why-panel{background:var(--gold-light);border:1px solid #f0d28e;border-radius:10px;padding:12px;margin-top:9px}.answer-box{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:end}.answer-box label{margin-top:0}.feedback{margin-top:10px;border-radius:10px;padding:12px;display:none}.feedback.ok{display:block;background:#eaf7ee;color:#1f643b}.feedback.no{display:block;background:#fff0ed;color:#923b2f}.hint{background:#fff8e8;border:1px solid #f0dba9;border-radius:12px;padding:12px;margin:12px 0}.hidden{display:none!important}.footer-note{font-size:.82rem;color:var(--muted);margin-top:20px}.mode-note{font-size:.9rem;padding:10px 12px;background:#eef5fa;border-radius:10px;margin-top:10px}
+.session-card{margin-bottom:18px;padding:18px 20px}
+.session-heading{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.session-heading h2{margin:0}
+.session-heading p{margin:0}
+.session-controls{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1.2fr) auto;gap:12px;align-items:end;margin-top:8px}
+.control-group label{margin:8px 0 6px}
+.reset-button{margin-bottom:0;white-space:nowrap}
+.mode-note{margin-top:12px}
+.advanced-settings{margin-top:12px;border-top:1px solid var(--line);padding-top:10px;color:var(--muted);font-size:.9rem}
+.advanced-settings summary{cursor:pointer;font-weight:700;color:var(--ink)}
+.advanced-settings .radio-list{margin-top:10px}
+@media(max-width:800px){main{margin-top:-12px}.card{padding:16px}.session-controls{grid-template-columns:1fr}.reset-button{width:100%}.session-heading{display:block}.session-heading p{margin-top:4px}}
+</style>
+<style>html, body, #root {
+      margin-top: 0; margin-bottom: 0; padding-top: 0; padding-bottom: 0;
+      
+    }
+html,body,#root{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}html,body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Helvetica Neue,Arial,sans-serif!important}button,input,textarea,select{font-family:inherit}html{background-color:transparent}html.chatgptOled.dark,html.mobileSkybridge.dark{background-color:#000}@supports (font: -apple-system-body){html.mobileSkybridge{font:-apple-system-body}}html.desktopSkybridge.dark{background-color:#1e1e1e}html.transparentSkybridgeBackground,html.transparentSkybridgeBackground.dark{background-color:transparent}html.androidSkybridge,html.androidSkybridge body,html.androidSkybridge *{-webkit-tap-highlight-color:rgba(255,255,255,0)}html.androidSkybridge *::selection,html.androidSkybridge *::-moz-selection{background:#fff0;color:inherit}</style></head>
+<body>
+<header><div class="wrap"><div class="eyebrow">Física · 2n de Batxillerat</div><h1>⚡ CarnotLab</h1><p>Un tutor de màquines tèrmiques que t'ajuda a entendre les equacions, no només a trobar el resultat.</p></div></header>
+<main>
+<aside class="card session-card" id="sessionCard">
+  <div class="session-heading"><h2>Comencem a treballar</h2><p class="muted small">Tria un problema o una pregunta teòrica.</p></div>
+  <div class="session-controls">
+    <div class="control-group">
+      <label for="exercise">Problema o pregunta</label>
+      <select id="exercise">
+        <option value="1">1 · Eficiència i irreversibilitats</option>
+        <option value="2">2 · Entropia i irreversibilitats</option>
+        <option value="3">3 · Motor tèrmic ideal</option>
+        <option value="4">4 · Segon principi: possible o impossible?</option>
+        <option value="5">5 · Potència d’un compressor</option>
+        <option value="6">6 · Refrigeració i producció de gel</option>
+        <option value="7">7 · Cicle de Carnot i combustible</option>
+        <option value="8">8 · Motor dièsel: rendiment i treball</option>
+        <option value="9">9 · Màquina frigorífica: cambra refrigerada</option>
+        <option value="10">10 · Motor de gasolina: cicle Otto</option>
+        <option value="11">11 · Turbina de vapor</option>
+        <option value="12">15 · Motor dièsel: soroll de picat</option>
+        <option value="13">16 · Cilindrada i cambra de combustió</option>
+        <option value="14">17 · Turbines d’acció i de reacció</option>
+        <option value="teoria_raonament">T1 · Teoria: raonament físic</option>
+        <option value="teoria_vf">T2 · Teoria: vertader o fals justificat</option>
+        <option value="teoria_error">T3 · Teoria: detecta l’error</option>
+        <option value="teoria_test">T4 · Teoria: test autocorrectiu</option>
+        <option value="teoria_breu">T5 · Teoria: resposta breu</option>
+      </select>
+    </div>
+    <div class="control-group">
+      <label for="mode">Mode per als problemes</label>
+      <select id="mode"><option value="guided">Resolució guiada · pas a pas</option><option value="socratic">Pistes progressives · mode socràtic</option></select>
+    </div>
+    <button id="reset" class="secondary reset-button">Reinicia</button>
+  </div>
+  <p id="modeNote" class="mode-note">Veureu les equacions, què significa cada símbol, la substitució de dades i la interpretació física.</p>
+  <details class="advanced-settings">
+    <summary>Opcions addicionals · convenció de signes</summary>
+    <div class="radio-list">
+      <label class="radio-option"><input type="radio" name="sign" value="by" checked=""><span><strong>Treball fet pel gas positiu</strong><small>ΔU = Q − W</small></span></label>
+      <label class="radio-option"><input type="radio" name="sign" value="on"><span><strong>Treball fet sobre el gas positiu</strong><small>ΔU = Q + W</small></span></label>
+    </div>
+    <p class="small muted">Tria una convenció i mantén-la coherent. En els problemes, el treball net produït i les calors intercanviades es donen com a magnituds positives.</p>
+  </details>
+</aside>
+<section class="card">
+<div id="problem1">\n<div class="section-head"><div><h2>Problema 1 · Una màquina de vapor</h2><p class="muted small">Llegeix l'enunciat i avança al teu ritme.</p></div><span class="pill">Segon principi</span></div>
+<div class="problem">
+<p>Una màquina de vapor que extreu <strong>Q<sub>h</sub> = 800 MJ</strong> de la font tèrmica calenta a <strong>T<sub>h</sub> = 500 °C</strong> fa un treball net de <strong>W = 250 MJ</strong> i en cedeix <strong>|Q<sub>c</sub>| = 550 MJ</strong> a la font freda a <strong>T<sub>c</sub> = 120 °C</strong>.</p>
+<p>Calcula: <strong>a)</strong> l'eficiència segons el segon principi, <strong>b)</strong> el treball perdut per irreversibilitats i <strong>c)</strong> la variació d'entropia de l'aigua del riu que refrigera el condensador.</p>
+</div>
+<div class="pills"><span class="pill">Dades en MJ</span><span class="pill">Temperatures en °C → K</span><span class="pill">3 apartats</span></div>
+<div id="guided">
+<div class="section-head"><h2>Resolució explicada</h2><span class="pill">Mode guiat</span></div>
+<div class="step"><h3><span class="step-num">1</span>Comprovem el balanç d'energia</h3>
+<p>Per a una màquina que completa cicles, l'energia interna torna al valor inicial. La calor neta rebuda es transforma en treball net produït.</p>
+<div class="equation">Q<sub>h</sub> = W + |Q<sub>c</sub>|</div>
+<div class="defs"><div class="def"><b>Q<sub>h</sub></b> · calor absorbida de la font calenta (800 MJ)</div><div class="def"><b>W</b> · treball net produït (250 MJ)</div><div class="def"><b>|Q<sub>c</sub>|</b> · calor cedida a la font freda (550 MJ)</div></div>
+<div class="substitution">800 = 250 + 550 MJ ✓ El balanç d'energia es compleix.</div>
+<button class="gold why" data-why="energy">Per què fem servir aquesta equació?</button><div id="why-energy" class="why-panel hidden">Com que la màquina torna a l'estat inicial després de cada cicle, ΔU = 0. Amb la convenció de treball fet pel gas positiu, la primera llei dona Qnet = W; per això la calor absorbida és igual al treball produït més la calor cedida. En aquesta activitat, les calors cedides es representen amb el seu mòdul.</div>
+</div>
+<div class="step"><h3><span class="step-num">2</span>Convertim les temperatures a kelvins</h3>
+<div class="equation">T(K) = T(°C) + 273,15</div>
+<div class="substitution">T<sub>h</sub> = 500 + 273,15 = <b>773,15 K</b><br>T<sub>c</sub> = 120 + 273,15 = <b>393,15 K</b></div>
+<button class="gold why" data-why="kelvin">Per què fem servir aquesta equació?</button><div id="why-kelvin" class="why-panel hidden">Les expressions del segon principi que comparen temperatures absolutes, com l'eficiència de Carnot, requereixen kelvins. No podem fer servir directament graus Celsius en el quocient de temperatures.</div>
+</div>
+<div class="step"><h3><span class="step-num">3</span>Calculem l'eficiència real</h3>
+<div class="equation">η = W / Q<sub>h</sub></div>
+<div class="defs"><div class="def"><b>η</b> · fracció de la calor absorbida convertida en treball útil</div><div class="def"><b>W</b> · treball net produït (250 MJ)</div><div class="def"><b>Q<sub>h</sub></b> · calor absorbida (800 MJ)</div></div>
+<div class="substitution">η = 250 / 800 = 0,3125 = <span class="result">31,25 %</span></div>
+<button class="gold why" data-why="eta">Per què fem servir aquesta equació?</button><div id="why-eta" class="why-panel hidden">L'eficiència tèrmica mesura quina part de l'energia que entra com a calor es transforma en treball. Per això dividim el treball útil per la calor absorbida, que és l'energia d'entrada de la màquina.</div>
+</div>
+<div class="step"><h3><span class="step-num">4</span>Calculem l'eficiència màxima de Carnot</h3>
+<div class="equation">η<sub>C</sub> = 1 − T<sub>c</sub> / T<sub>h</sub></div>
+<div class="defs"><div class="def"><b>η<sub>C</sub></b> · eficiència màxima teòrica entre aquestes dues temperatures</div><div class="def"><b>T<sub>h</sub></b> · temperatura absoluta de la font calenta</div><div class="def"><b>T<sub>c</sub></b> · temperatura absoluta de la font freda</div></div>
+<div class="substitution">η<sub>C</sub> = 1 − 393,15 / 773,15 ≈ 0,4915 = <span class="result">49,15 %</span></div>
+<button class="gold why" data-why="carnot">Per què fem servir aquesta equació?</button><div id="why-carnot" class="why-panel hidden">El teorema de Carnot estableix el límit màxim d'eficiència per a una màquina que treballa entre dues fonts a temperatures fixes. Aquest límit correspon a una màquina reversible; una màquina real no el pot superar.</div>
+</div>
+<div class="step"><h3><span class="step-num">5</span>Eficiència segons el segon principi</h3>
+<div class="equation">η<sub>s</sub> = η / η<sub>C</sub></div>
+<div class="defs"><div class="def"><b>η<sub>s</sub></b> · eficiència real comparada amb el límit de Carnot</div><div class="def"><b>η</b> · eficiència de la màquina real</div><div class="def"><b>η<sub>C</sub></b> · eficiència màxima teòrica</div></div>
+<div class="substitution">η<sub>s</sub> = 0,3125 / 0,4915 ≈ 0,636 = <span class="result">63,6 %</span></div>
+<p>Interpretació: la màquina assoleix aproximadament el 63,6 % de l'eficiència màxima possible entre aquestes dues fonts.</p>
+<button class="gold why" data-why="second">Per què fem servir aquesta equació?</button><div id="why-second" class="why-panel hidden">Comparem l'eficiència real amb la màxima reversible possible en les mateixes condicions. El quocient és una mesura de com d'aprop treballa la màquina del límit ideal.</div>
+</div>
+<div class="step"><h3><span class="step-num">6</span>Treball perdut per irreversibilitats</h3>
+<div class="equation">W<sub>p</sub> = Q<sub>h</sub> · η<sub>C</sub> − W</div>
+<p>El primer terme és el treball que produiria una màquina reversible que absorbís la mateixa calor de la font calenta. En restar-hi el treball real, obtenim el treball perdut respecte del límit ideal.</p>
+<div class="substitution">W<sub>p</sub> = 800 · 0,4915 − 250 ≈ <span class="result">143,2 MJ</span></div>
+<button class="gold why" data-why="lost">Per què fem servir aquesta equació?</button><div id="why-lost" class="why-panel hidden">Per a la mateixa calor absorbida, el treball màxim és Wmax = Qh·ηC. La diferència Wmax − W és el treball que no s'ha pogut obtenir a causa de les irreversibilitats, sota aquest model de comparació.</div>
+</div>
+<div class="step"><h3><span class="step-num">7</span>Variació d'entropia de l'aigua del riu</h3>
+<div class="equation">ΔS = |Q<sub>c</sub>| / T<sub>c</sub></div>
+<div class="defs"><div class="def"><b>ΔS</b> · variació d'entropia de l'aigua (en MJ/K)</div><div class="def"><b>|Q<sub>c</sub>|</b> · calor rebuda per l'aigua (550 MJ)</div><div class="def"><b>T<sub>c</sub></b> · temperatura absoluta a la qual es transfereix la calor (393,15 K)</div></div>
+<div class="substitution">ΔS = 550 / 393,15 ≈ <span class="result">1,399 MJ/K</span></div>
+<div class="hint"><b>Hipòtesi important:</b> aquest resultat suposa que l'aigua rep la calor a temperatura constant de 120 °C. Si la temperatura de l'aigua del riu canvia durant el procés, caldrien dades addicionals per calcular-ne la variació real d'entropia.</div>
+<button class="gold why" data-why="entropy">Per què fem servir aquesta equació?</button><div id="why-entropy" class="why-panel hidden">Per a una transferència reversible de calor a temperatura constant, ΔS = Qrev/T. Aquí s'aplica al dipòsit fred idealitzat a 393,15 K; és una aproximació que s'ha d'indicar perquè un riu real no necessàriament es manté a temperatura constant.</div>
+</div>
+</div>
+<div id="socratic" class="hidden">
+<div class="section-head"><h2>Resolem-ho amb pistes</h2><span class="pill">Mode socràtic</span></div>
+<p>No et mostraré tota la solució de cop. Comencem pel primer pas i anem avançant quan ho tinguis clar.</p>
+<div class="step"><h3 id="qTitle">Pregunta 1 de 3 · Eficiència real</h3><p id="qText">L’eficiència tèrmica és el treball útil dividit per la calor absorbida. Quina expressió triaries?</p>
+<div id="qChoices" class="radio-list"><label class="radio-option"><input type="radio" name="socChoice" value="a"><span>η = Qh / W</span></label><label class="radio-option"><input type="radio" name="socChoice" value="b"><span>η = W / Qh</span></label><label class="radio-option"><input type="radio" name="socChoice" value="c"><span>η = W · Qh</span></label></div>
+<div id="sFeedback" class="feedback"></div><div class="pills"><span class="pill" id="progress">Pas 1 de 3</span></div>
+<button id="hintBtn" class="gold">Dona'm una pista</button> <button id="checkSoc" class="primary">Comprova</button> <button id="nextSoc" class="primary hidden">Continua</button>
+<div id="hintText" class="hint hidden">El resultat ha de ser una fracció de l’energia d’entrada i, per tant, no té unitats.</div>
+</div>
+<div class="step"><h3>Vols veure la resolució completa?</h3><p class="muted small">Pots canviar al mode guiat en qualsevol moment per consultar totes les equacions i explicacions.</p><button id="showFull" class="secondary">Mostra la resolució completa</button></div>
+</div>
+<div class="step">
+<h3>Practica la comprovació numèrica</h3>
+<p class="small muted">Escriu el resultat d'un dels apartats. Pots introduir-lo amb coma o punt decimal. No cal afegir les unitats.</p>
+<label for="part">Apartat</label><select id="part"><option value="a">a) Eficiència segons el segon principi (%)</option><option value="b">b) Treball perdut (MJ)</option><option value="c">c) Variació d'entropia (MJ/K)</option></select>
+<div class="answer-box"><div><label for="answer">La teva resposta</label><input id="answer" type="text" inputmode="decimal" placeholder="Ex.: 63,6"></div><button id="checkAnswer" class="primary">Comprova</button></div>
+<div id="answerFeedback" class="feedback"></div>
+</div>
+</div>\n<div id="problem2" class="hidden">\n<div class="section-head"><div><h2>Problema 2 · Una màquina tèrmica</h2><p class="muted small">Entropia, treball perdut i segon principi.</p></div><span class="pill">Segon principi</span></div>
+<div class="problem">
+<p>Una màquina tèrmica treballa entre <strong>T<sub>c</sub> = 120 °C</strong> i <strong>T<sub>h</sub> = 3.000 °C</strong>, extreu <strong>Q<sub>h</sub> = 1.672 kJ</strong> de la font calenta i en cedeix <strong>|Q<sub>c</sub>| = 1.045 kJ</strong> a la freda.</p>
+<p>Determina el treball perdut <strong>W<sub>p</sub></strong> en irreversibilitats i la variació d'entropia de la màquina <strong>ΔS</strong> i de l'Univers <strong>ΔS<sub>t</sub></strong> en cada cicle.</p>
+</div>
+<div class="pills"><span class="pill">Dades en kJ</span><span class="pill">Temperatures en K per als càlculs</span><span class="pill">3 resultats</span></div>
+<div id="p2guided">
+<div class="section-head"><h2>Resolució explicada</h2><span class="pill">Mode guiat</span></div>
+<div class="step"><h3><span class="step-num">1</span>Calculem el treball net de la màquina</h3>
+<p>En un cicle complet, la variació d'energia interna és nul·la. Per tant, el treball net és la calor absorbida menys la calor cedida.</p>
+<div class="equation">W = Q<sub>h</sub> − |Q<sub>c</sub>|</div>
+<div class="defs"><div class="def"><b>Q<sub>h</sub></b> · calor absorbida de la font calenta (1.672 kJ)</div><div class="def"><b>|Q<sub>c</sub>|</b> · calor cedida a la font freda (1.045 kJ)</div><div class="def"><b>W</b> · treball net produït per cicle</div></div>
+<div class="substitution">W = 1.672 − 1.045 = <span class="result">627 kJ</span></div>
+<button class="gold why" data-why="p2energy">Per què fem servir aquesta equació?</button><div id="why-p2energy" class="why-panel hidden">Amb la convenció de treball fet pel gas positiu, la primera llei és ΔU = Q − W. En un cicle, ΔU = 0, de manera que W és la calor neta rebuda: Qh − |Qc|.</div>
+</div>
+<div class="step"><h3><span class="step-num">2</span>Passem les temperatures a kelvins</h3>
+<div class="equation">T(K) = T(°C) + 273,15</div>
+<div class="substitution">T<sub>h</sub> = 3.000 + 273,15 = <b>3.273,15 K</b><br>T<sub>c</sub> = 120 + 273,15 = <b>393,15 K</b></div>
+<button class="gold why" data-why="p2kelvin">Per què fem servir aquesta equació?</button><div id="why-p2kelvin" class="why-panel hidden">Les temperatures que apareixen en les expressions d'entropia i en l'eficiència de Carnot són temperatures absolutes, expressades en kelvins.</div>
+</div>
+<div class="step"><h3><span class="step-num">3</span>Calculem el treball màxim reversible</h3>
+<div class="equation">η<sub>C</sub> = 1 − T<sub>c</sub>/T<sub>h</sub> &nbsp; ; &nbsp; W<sub>rev</sub> = Q<sub>h</sub>η<sub>C</sub></div>
+<div class="defs"><div class="def"><b>η<sub>C</sub></b> · eficiència màxima teòrica de Carnot</div><div class="def"><b>W<sub>rev</sub></b> · treball que produiria una màquina reversible amb la mateixa calor absorbida</div></div>
+<div class="substitution">η<sub>C</sub> = 1 − 393,15/3.273,15 ≈ 0,8799<br>W<sub>rev</sub> = 1.672 · 0,8799 ≈ 1.471,17 kJ</div>
+<button class="gold why" data-why="p2rev">Per què fem servir aquesta equació?</button><div id="why-p2rev" class="why-panel hidden">El treball reversible és el màxim que es pot obtenir de la mateixa calor absorbida entre aquestes dues temperatures. Qualsevol màquina real produeix com a màxim aquest treball.</div>
+</div>
+<div class="step"><h3><span class="step-num">4</span>Treball perdut per irreversibilitats</h3>
+<div class="equation">W<sub>p</sub> = W<sub>rev</sub> − W</div>
+<div class="substitution">W<sub>p</sub> ≈ 1.471,17 − 627 = <span class="result">844,17 kJ</span></div>
+<button class="gold why" data-why="p2lost">Per què fem servir aquesta equació?</button><div id="why-p2lost" class="why-panel hidden">La diferència entre el treball màxim reversible i el treball real és el treball que no s'obté a causa de les irreversibilitats. En aquest cas també coincideix amb Tc·ΔSt.</div>
+</div>
+<div class="step"><h3><span class="step-num">5</span>Variació d'entropia de la màquina</h3>
+<div class="equation">ΔS<sub>màquina</sub> = 0 &nbsp; (per cicle complet)</div>
+<p>L'entropia és una funció d'estat. En acabar un cicle, la màquina torna al seu estat inicial; per tant, la seva variació d'entropia total al llarg del cicle és nul·la.</p>
+<div class="substitution">ΔS<sub>màquina</sub> = <span class="result">0 kJ/K</span></div>
+<button class="gold why" data-why="p2machine">Per què fem servir aquesta equació?</button><div id="why-p2machine" class="why-panel hidden">La màquina pot tenir canvis d'entropia durant les etapes individuals, però en un cicle complet torna al mateix estat. Per una funció d'estat com l'entropia, el canvi net és zero.</div>
+</div>
+<div class="step"><h3><span class="step-num">6</span>Variació d'entropia de l'Univers</h3>
+<div class="equation">ΔS<sub>t</sub> = ΔS<sub>calenta</sub> + ΔS<sub>freda</sub></div>
+<div class="defs"><div class="def"><b>ΔS<sub>calenta</sub></b> = −Q<sub>h</sub>/T<sub>h</sub> · entropia que perd la font calenta</div><div class="def"><b>ΔS<sub>freda</sub></b> = |Q<sub>c</sub>|/T<sub>c</sub> · entropia que guanya la font freda</div></div>
+<div class="substitution">ΔS<sub>calenta</sub> = −1.672/3.273,15 ≈ −0,5108 kJ/K<br>ΔS<sub>freda</sub> = 1.045/393,15 ≈ 2,6580 kJ/K<br>ΔS<sub>t</sub> = −0,5108 + 2,6580 ≈ <span class="result">2,1472 kJ/K</span></div>
+<p>Interpretació: la variació d'entropia de l'Univers és positiva, com exigeix el segon principi per a un procés real irreversible.</p>
+<button class="gold why" data-why="p2universe">Per què fem servir aquesta equació?</button><div id="why-p2universe" class="why-panel hidden">L'Univers del problema inclou la màquina i les dues fonts. La màquina torna al seu estat inicial i té ΔS = 0 per cicle; la font calenta perd entropia en cedir calor i la font freda en guanya en rebre-la. La suma és positiva per a un procés irreversible.</div>
+<div class="hint"><b>Hipòtesis:</b> les fonts tèrmiques es mantenen a temperatures constants i la màquina completa un cicle. Si es considera l'Univers com a màquina + fonts, ΔSt = −Qh/Th + |Qc|/Tc.</div>
+</div>
+</div>
+<div id="p2socratic" class="hidden">
+<div class="section-head"><h2>Resolem-ho amb pistes</h2><span class="pill">Mode socràtic</span></div>
+<p>Comencem pel balanç d'energia; després raonarem què passa amb l'entropia de la màquina i la de les fonts.</p>
+<div class="step"><h3 id="p2qTitle">Pregunta 1 de 3 · Treball net</h3><p id="p2qText">En un cicle complet, com obtens el treball net a partir de la calor absorbida i la calor cedida?</p>
+<div id="p2qChoices" class="radio-list"></div><div id="p2sFeedback" class="feedback"></div><div class="pills"><span class="pill" id="p2progress">Pas 1 de 3</span></div>
+<button id="p2hintBtn" class="gold">Dona'm una pista</button> <button id="p2checkSoc" class="primary">Comprova</button> <button id="p2nextSoc" class="primary hidden">Continua</button>
+<div id="p2hintText" class="hint hidden"></div>
+</div>
+</div>
+<div class="step"><h3>Practica la comprovació numèrica</h3>
+<p class="small muted">Escriu un dels resultats demanats. Pots utilitzar coma o punt decimal.</p>
+<label for="part2">Magnitud</label><select id="part2"><option value="wp">Treball perdut Wp (kJ)</option><option value="sm">Variació d'entropia de la màquina ΔS (kJ/K)</option><option value="st">Variació d'entropia de l'Univers ΔSt (kJ/K)</option></select>
+<div class="answer-box"><div><label for="answer2">La teva resposta</label><input id="answer2" type="text" inputmode="decimal" placeholder="Ex.: 844,17"></div><button id="checkAnswer2" class="primary">Comprova</button></div>
+<div id="answerFeedback2" class="feedback"></div>
+</div>
+</div>
+
+
+<div class="step hidden" id="autonomousPanel">
+  <div class="section-head"><div><h2 id="autoPanelTitle">Exercici seleccionat</h2><p class="muted small">Treballa al teu ritme. Pots comprovar els resultats i consultar la resolució quan ho necessitis.</p></div><span class="pill">Entrenament autònom</span></div>
+  <select id="autoFamily" class="hidden" aria-hidden="true"><option value="motor">Motor tèrmic</option><option value="second">Segon principi</option><option value="compressor">Compressor</option><option value="cooling">Refrigeració</option><option value="carnot">Carnot</option><option value="diesel">Motor dièsel</option><option value="refrigeration">Màquina frigorífica</option><option value="otto">Motor Otto</option><option value="turbine">Turbina de vapor</option></select>
+  <label for="autoLevel">Nivell de repte</label>
+  <select id="autoLevel"><option value="1">Escalfament · una idea principal</option><option value="2" selected="">Estàndard · diverses etapes</option><option value="3">Repte · més càlculs i interpretació</option></select>
+  <label for="autoMode">Com vols començar?</label>
+  <select id="autoMode"><option value="hints">Primer, pistes i preguntes</option><option value="guided">Solució guiada completa</option></select>
+  <button id="autoGenerate" class="primary">Genera el meu exercici</button>
+  <div id="autoProblem" class="problem hidden" aria-live="polite"></div>
+  <div id="autoWork" class="hidden">
+    <div id="autoHints" class="hint hidden"></div>
+    <div id="autoAnswerInputs"></div>
+    <button id="autoCheck" class="primary">Comprova les respostes</button>
+    <div id="autoFeedback" class="feedback"></div>
+    <button id="autoShowSolution" class="gold">Mostra la resolució explicada</button>
+    <div id="autoSolution" class="hidden"></div>
+  </div>
+  <p class="footer-note">Les dades i les correccions es calculen amb fórmules programades en aquest dispositiu. No és una IA generativa i no s'envien respostes a cap servidor.</p>
+</div>
+
+<div class="step hidden" id="theoryPanel">
+  <div class="section-head"><div><h2 id="theoryTitle">Pregunta teòrica</h2><p class="muted small">Raona abans de consultar la resposta. Pots generar una altra pregunta del mateix tipus.</p></div><span class="pill">Comprensió conceptual</span></div>
+  <div class="problem"><p id="theoryPrompt"></p><p id="theoryStatement" class="hidden"></p></div>
+  <div id="theoryInteraction"></div>
+  <div id="theoryFeedback" class="feedback" aria-live="polite"></div>
+  <div id="theoryModel" class="why-panel hidden"></div>
+  <div class="pills"><span class="pill">Banc inicial de preguntes</span><span class="pill">Respostes de referència programades</span></div>
+  <button id="theoryNext" class="primary">Una altra pregunta d’aquest tipus</button>
+  <p class="footer-note">Aquest banc inicial conté preguntes noves de termodinàmica. Les justificacions obertes es comparen amb una resposta de referència, no es puntuen automàticament. Quan m’enviïs les teves preguntes o apunts, les incorporarem respectant-ne l’enunciat i el criteri docent.</p>
+</div>
+
+<div class="step hidden" id="generatorPanel">
+  <div class="section-head"><div><h2>🎲 Generador de problemes nous</h2><p class="muted small">Cada clic crea un enunciat diferent amb dades coherents i una solució de referència calculada amb fórmules definides.</p></div><span class="pill">Beta</span></div>
+  <label for="genType">Tipus de problema</label>
+  <select id="genType">
+    <option value="entropy">Treball perdut i entropia de l'Univers</option>
+    <option value="efficiency">Eficiència segons el segon principi i treball perdut</option>
+  </select>
+  <button id="generateProblem" class="primary">Genera un problema nou</button>
+  <div id="generatedProblem" class="problem hidden" aria-live="polite"></div>
+  <div id="generatedTasks" class="hidden">
+    <h3>Resol-lo abans de mirar la solució</h3>
+    <p class="small muted">Escriu els valors numèrics. S'accepten coma o punt decimal i un marge d'arrodoniment.</p>
+    <div id="generatedInputs"></div>
+    <button id="checkGenerated" class="primary">Comprova les respostes</button>
+    <div id="generatedFeedback" class="feedback"></div>
+    <button id="toggleGeneratedSolution" class="gold">Mostra la resolució explicada</button>
+    <div id="generatedSolution" class="hidden"></div>
+  </div>
+  <p class="footer-note">Nota: aquest generador utilitza plantilles i càlculs físics programats; encara no inventa enunciats amb un model d'IA. Les dades generades es filtren perquè el balanç energètic i el segon principi siguen coherents.</p>
+</div>
+
+<p class="footer-note">Prototip didàctic local: les comprovacions són automàtiques i no s'envien dades a cap servidor. El mode socràtic és una demostració guiada, encara no un tutor d'IA connectat.</p>
+</section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const mode=$('mode'), guided=$('guided'), socratic=$('socratic'), modeNote=$('modeNote');
+mode.addEventListener('change',()=>{const s=mode.value==='socratic';guided.classList.toggle('hidden',s);socratic.classList.toggle('hidden',!s);$('p2guided').classList.toggle('hidden',s);$('p2socratic').classList.toggle('hidden',!s);$('autoMode').value=s?'hints':'guided';modeNote.textContent=s?'Rebràs preguntes i pistes progressives. Intenta justificar cada pas abans de continuar.':'Veureu les equacions, què significa cada símbol, la substitució de dades i la interpretació física.';});
+document.querySelectorAll('[data-why]').forEach(b=>b.addEventListener('click',()=>{const p=$('why-'+b.dataset.why);p.classList.toggle('hidden');b.textContent=p.classList.contains('hidden')?'Per què fem servir aquesta equació?':'Amaga l’explicació'}));
+const answers={a:{value:63.6,tol:.5,unit:'%',explain:'L’eficiència segons el segon principi és ηs = η/ηC × 100 ≈ 63,6 %.'},b:{value:143.2,tol:1,unit:'MJ',explain:'Wp = Qh·ηC − W ≈ 800·0,4915 − 250 = 143,2 MJ.'},c:{value:1.399,tol:.02,unit:'MJ/K',explain:'ΔS = |Qc|/Tc = 550/393,15 ≈ 1,399 MJ/K, sota la hipòtesi de temperatura constant.'}};
+$('checkAnswer').addEventListener('click',()=>{const part=$('part').value;const raw=$('answer').value.trim().replace(',','.');const n=Number(raw);const box=$('answerFeedback');box.className='feedback';if(raw===''||!Number.isFinite(n)){box.classList.add('no');box.textContent='Escriu un valor numèric per poder-lo comprovar.';return;}const a=answers[part];if(Math.abs(n-a.value)<=a.tol){box.classList.add('ok');box.innerHTML='Correcte! '+a.explain;}else{box.classList.add('no');box.innerHTML='Encara no. Revisa la fórmula i les unitats. <br><b>Pista:</b> '+(part==='a'?'Compara l’eficiència real amb la de Carnot.':part==='b'?'Calcula primer el treball màxim reversible, Qh·ηC.':'Converteix Tc a kelvins i divideix la calor cedida per aquesta temperatura.');}});
+const answers2={wp:{value:844.17,tol:2,explain:'Wp = Wrev − W = Qh(1 − Tc/Th) − (Qh − |Qc|) ≈ 844,17 kJ.'},sm:{value:0,tol:.01,explain:'En un cicle complet la màquina torna al seu estat inicial, així que ΔS de la màquina = 0.'},st:{value:2.1472,tol:.03,explain:'ΔSt = −Qh/Th + |Qc|/Tc ≈ −0,5108 + 2,6580 = 2,1472 kJ/K.'}};
+$('checkAnswer2').addEventListener('click',()=>{const part=$('part2').value;const raw=$('answer2').value.trim().replace(',','.');const n=Number(raw);const box=$('answerFeedback2');box.className='feedback';if(raw===''||!Number.isFinite(n)){box.classList.add('no');box.textContent='Escriu un valor numèric per poder-lo comprovar.';return;}const a=answers2[part];if(Math.abs(n-a.value)<=a.tol){box.classList.add('ok');box.textContent='Correcte! '+a.explain;}else{box.classList.add('no');box.textContent='Encara no. Revisa les temperatures en kelvins i el signe de la calor cedida per la font calenta. '+a.explain;}});
+function updateExercise(){
+ const value=$('exercise').value, isFixed=value==='1'||value==='2', p2=value==='2';
+ const isTheory=value.startsWith('teoria_');
+ $('problem1').classList.toggle('hidden',!isFixed||p2);
+ $('problem2').classList.toggle('hidden',!p2);
+ $('autonomousPanel').classList.toggle('hidden',isFixed||isTheory);
+ $('theoryPanel').classList.toggle('hidden',!isTheory);
+ $('generatorPanel').classList.add('hidden');
+ const families={ '3':'motor','4':'second','5':'compressor','6':'cooling','7':'carnot','8':'diesel','9':'refrigeration','10':'otto','11':'turbine','12':'dieselnoise','13':'enginegeometry','14':'turbineaction' };
+ if(!isFixed&&!isTheory){$('autoPanelTitle').textContent=$('exercise').selectedOptions[0].textContent;$('autoMode').value=mode.value==='socratic'?'hints':'guided';$('autoGenerate').textContent='Genera un altre enunciat';$('autoFamily').value=families[value];autoGenerate();}
+ if(isTheory) renderTheory(value);
+ qi=0;renderQ();p2qi=0;renderP2Q();
+ const soc=mode.value==='socratic';$('p2guided').classList.toggle('hidden',soc);$('p2socratic').classList.toggle('hidden',!soc);
+ if(p2||isFixed){$('modeNote').textContent=soc?'Rebràs preguntes i pistes progressives. Intenta justificar cada pas abans de continuar.':'Veureu les equacions, què significa cada símbol, la substitució de dades i la interpretació física.';}
+}
+const theoryBank={
+ teoria_raonament:[
+  {title:'Raonament físic · Màquina tèrmica',prompt:'Una màquina tèrmica absorbeix 900 J de la font calenta i produeix 900 J de treball en cada cicle. És compatible amb el segon principi? Explica per què.',model:'No, si opera en cicle i només intercanvia calor amb una font calenta. La màquina convertiria tota la calor absorbida en treball, sense cedir-ne a una font freda, cosa prohibida pel segon principi. La primera llei per si sola no ho impediria; el límit el posa el segon principi.'},
+  {title:'Raonament físic · Refrigeració',prompt:'Per què un refrigerador necessita consumir energia elèctrica per extreure calor d’una cambra freda i cedir-la a una habitació més calenta?',model:'La calor no passa espontàniament del focus fred al calent. El compressor aporta treball al sistema i permet que el refrigerant completi el cicle. El balanç energètic és Q̇calent = Q̇fred + Pel.'},
+  {title:'Raonament físic · Cicles ideals',prompt:'Dos motors de Carnot treballen entre les mateixes temperatures calenta i freda, però un rep el doble de calor per cicle. Quin tindrà més rendiment? I quin produirà més treball per cicle?',model:'Tindran el mateix rendiment, perquè el rendiment de Carnot només depèn de les temperatures dels dos focus: η = 1 − Tc/Th. Si el segon absorbeix el doble de calor i manté el mateix rendiment, també produirà el doble de treball per cicle.'}
+ ],
+ teoria_vf:[
+  {title:'Vertader o fals · Temperatures',prompt:'Per calcular el rendiment de Carnot, es poden introduir directament les temperatures en graus Celsius perquè només apareixen en un quocient.',statement:'Aquesta afirmació és…',truth:false,model:'Fals. Les temperatures de la fórmula de Carnot s’han d’expressar en kelvins, perquè és una relació entre temperatures absolutes.'},
+  {title:'Vertader o fals · Entropia',prompt:'En un cicle complet, la variació d’entropia de la substància de treball és zero perquè torna al seu estat inicial.',statement:'Aquesta afirmació és…',truth:true,model:'Vertader. L’entropia és una funció d’estat; si el sistema torna a l’estat inicial, la seva variació neta és zero. Això no vol dir que la variació d’entropia de l’Univers sigui zero.'},
+  {title:'Vertader o fals · Refrigerador',prompt:'El COP d’un refrigerador sempre ha de ser inferior a 1 perquè la màquina consumeix energia elèctrica.',statement:'Aquesta afirmació és…',truth:false,model:'Fals. El COP és la calor extreta del focus fred dividida pel treball d’entrada. Pot ser superior a 1 perquè el refrigerador mou calor; no transforma simplement treball en calor.'}
+ ],
+ teoria_error:[
+  {title:'Detecta l’error · Rendiment',prompt:'Un alumne escriu: «El rendiment tèrmic és η = Qh/W, perquè cal dividir l’energia d’entrada pel treball obtingut». Identifica l’error i escriu l’expressió correcta.',model:'Ha invertit el quocient. El rendiment és el treball útil obtingut dividit per la calor absorbida: η = W/Qh. En una màquina tèrmica cíclica, η no pot superar 1.'},
+  {title:'Detecta l’error · Segon principi',prompt:'En una màquina frigorífica, una alumna afirma: «La calor cedida al local és menor que la calor extreta de la cambra perquè el refrigerador refreda». Què falla en aquest raonament?',model:'La calor cedida al local és més gran que la calor extreta de la cambra, perquè també inclou l’energia elèctrica consumida pel compressor: Qcalent = Qfred + Pel.'},
+  {title:'Detecta l’error · Cicle Otto',prompt:'En resoldre un cicle Otto ideal, un alumne usa T₂ = T₁/r^(γ−1) per calcular la temperatura després de la compressió. Detecta l’error.',model:'En la compressió isentròpica 1 → 2, la temperatura augmenta: T₂ = T₁·r^(γ−1). La divisió per r^(γ−1) correspon a la relació de temperatura d’una expansió isentròpica ideal amb la mateixa relació de volum.'}
+ ],
+ teoria_test:[
+  {title:'Test autocorrectiu · Motor dièsel',prompt:'En el cicle dièsel ideal aire-estàndard, durant quin procés s’aporta calor?',opts:['A volum constant','A pressió constant','A temperatura constant','En una etapa isentròpica'],correct:1,model:'La resposta correcta és «A pressió constant». En el cicle dièsel ideal, l’aportació de calor té lloc durant el procés 2 → 3 a pressió constant.'},
+  {title:'Test autocorrectiu · Entropia',prompt:'Quina afirmació descriu el segon principi per a un procés real que inclou el sistema i l’entorn?',opts:['L’entropia total sempre disminueix','L’entropia total es conserva en qualsevol procés','L’entropia total no disminueix; augmenta si el procés és irreversible','L’entropia només canvia en els gasos'],correct:2,model:'La resposta correcta és «L’entropia total no disminueix; augmenta si el procés és irreversible». En un procés reversible ideal, la variació total és zero.'},
+  {title:'Test autocorrectiu · Bomba de calor',prompt:'Quina és la definició del COP d’una bomba de calor?',opts:['COP = treball d’entrada / calor cedida','COP = calor cedida al focus calent / treball d’entrada','COP = calor extreta del focus fred / treball d’entrada','COP = treball d’entrada / calor extreta'],correct:1,model:'La resposta correcta és COPBC = Qcalent/Wentrada. En una bomba de calor, l’efecte útil és la calor cedida al focus calent.'}
+ ],
+ teoria_breu:[
+  {title:'Resposta breu · Compressor',prompt:'Per què, en un compressor adiabàtic real, la temperatura de sortida de l’aire acostuma a ser més alta que en una compressió isentròpica ideal fins a la mateixa pressió?',model:'Perquè les irreversibilitats del procés real generen entropia i requereixen més treball per assolir la mateixa pressió final. En un gas ideal, aquesta aportació de treball addicional es reflecteix en una entalpia i una temperatura de sortida més elevades.'},
+  {title:'Resposta breu · Turbina',prompt:'Què representa el rendiment isentròpic d’una turbina de vapor?',model:'Compara el treball específic real obtingut amb el treball específic que s’obtindria en una expansió isentròpica ideal entre la mateixa entrada i la mateixa pressió de sortida. Per a una turbina, ηs = (h₁ − h₂)/(h₁ − h₂s), sota les hipòtesis habituals.'},
+  {title:'Resposta breu · Motor tèrmic',prompt:'Quina diferència hi ha entre el rendiment real d’un motor tèrmic i el rendiment de Carnot?',model:'El rendiment real és el treball útil dividit per la calor absorbida. El rendiment de Carnot és el màxim teòric possible per a una màquina que opera entre dos focus a temperatures donades: ηC = 1 − Tc/Th, amb temperatures en kelvins. El rendiment real no pot superar aquest límit.'}
+ ]
+};
+let currentTheory=null;
+function renderTheory(type){
+ const pool=theoryBank[type]||[]; if(!pool.length)return;
+ let q=pool[Math.floor(Math.random()*pool.length)];
+ if(pool.length>1&&currentTheory&&q===currentTheory){q=pool[(pool.indexOf(q)+1)%pool.length];}
+ currentTheory=q;
+ $('theoryTitle').textContent=q.title;
+ $('theoryPrompt').textContent=q.prompt;
+ $('theoryStatement').textContent=q.statement||'';
+ $('theoryStatement').classList.toggle('hidden',!q.statement);
+ $('theoryFeedback').className='feedback';$('theoryFeedback').textContent='';
+ $('theoryModel').classList.add('hidden');$('theoryModel').textContent='';
+ const ui=$('theoryInteraction');
+ if(type==='teoria_test'){
+  ui.innerHTML='<div class="radio-list">'+q.opts.map((o,i)=>`<label class="radio-option"><input type="radio" name="theoryChoice" value="${i}"><span>${o}</span></label>`).join('')+'</div><button id="theoryCheck" class="primary full">Comprova la resposta</button>';
+  $('theoryCheck').addEventListener('click',()=>{const selected=document.querySelector('input[name="theoryChoice"]:checked');const f=$('theoryFeedback');f.className='feedback';if(!selected){f.classList.add('no');f.textContent='Tria una opció abans de comprovar.';return;}const ok=Number(selected.value)===q.correct;f.classList.add(ok?'ok':'no');f.textContent=ok?'Correcte! '+q.model:'Encara no. '+q.model;});
+ }else if(type==='teoria_vf'){
+  ui.innerHTML='<div class="radio-list"><label class="radio-option"><input type="radio" name="theoryTruth" value="true"><span>Vertader</span></label><label class="radio-option"><input type="radio" name="theoryTruth" value="false"><span>Fals</span></label></div><label for="theoryAnswer">Justifica la resposta</label><textarea id="theoryAnswer" rows="3" placeholder="Explica el perquè amb els conceptes físics pertinents…"></textarea><button id="theoryCheck" class="primary full">Comprova</button>';
+  $('theoryCheck').addEventListener('click',()=>{const selected=document.querySelector('input[name="theoryTruth"]:checked');const ans=$('theoryAnswer').value.trim();const f=$('theoryFeedback');f.className='feedback';if(!selected){f.classList.add('no');f.textContent='Marca vertader o fals i justifica-ho.';return;}if(!ans){f.classList.add('no');f.textContent='Afegeix una justificació breu abans de comprovar.';return;}const ok=(selected.value==='true')===q.truth;f.classList.add(ok?'ok':'no');f.textContent=(ok?'La classificació és correcta. ':'La classificació no és correcta. ')+q.model;});
+ }else{
+  ui.innerHTML='<label for="theoryAnswer">La teva resposta</label><textarea id="theoryAnswer" rows="4" placeholder="Escriu el teu raonament amb les teves paraules…"></textarea><button id="theoryReveal" class="gold full">Mostra una resposta de referència</button>';
+  $('theoryReveal').addEventListener('click',()=>{const ans=$('theoryAnswer').value.trim();$('theoryFeedback').className='feedback';$('theoryFeedback').textContent=ans?'Compara la teva resposta amb aquesta proposta i comprova si has justificat les idees clau.':'Llegeix la resposta de referència i intenta explicar-la després amb les teves paraules.';$('theoryModel').textContent=q.model;$('theoryModel').classList.remove('hidden');});
+ }
+}
+$('theoryNext').addEventListener('click',()=>renderTheory($('exercise').value));
+
+$('exercise').addEventListener('change',updateExercise);
+const qs1=[
+{title:'Pregunta 1 de 3 · Eficiència real',text:'L’eficiència tèrmica és el treball útil dividit per la calor absorbida. Quina expressió triaries?',opts:['η = Qh / W','η = W / Qh','η = W · Qh'],correct:'b',hint:'El resultat ha de ser una fracció de l’energia d’entrada i, per tant, no té unitats.',explain:'η = W/Qh = 250/800 = 0,3125 = 31,25 %.'},
+{title:'Pregunta 2 de 3 · Límit de Carnot',text:'Quina expressió dona l’eficiència màxima teòrica entre dues fonts a temperatures Th i Tc?',opts:['ηC = 1 − Tc/Th','ηC = Tc/Th','ηC = 1 − Th/Tc'],correct:'a',hint:'La màquina reversible només pot convertir una part de la calor en treball; les temperatures s’han d’expressar en kelvins.',explain:'ηC = 1 − Tc/Th = 1 − 393,15/773,15 ≈ 0,4915 = 49,15 %.'},
+{title:'Pregunta 3 de 3 · Segon principi',text:'Com compares l’eficiència real amb la màxima eficiència reversible?',opts:['ηs = ηC/η','ηs = η + ηC','ηs = η/ηC'],correct:'c',hint:'Si la màquina real s’acosta al límit de Carnot, el quocient s’acosta a 1 (100 %).',explain:'ηs = η/ηC = 0,3125/0,4915 ≈ 0,636 = 63,6 %.'}
+]; 
+const qs2=[
+{title:'Pregunta 1 de 3 · Treball net',text:'En un cicle complet, com obtens el treball net a partir de la calor absorbida i la calor cedida?',opts:['W = Qh + |Qc|','W = Qh − |Qc|','W = |Qc| − Qh'],correct:'b',hint:'El treball és la calor que entra menys la calor que surt cap a la font freda.',explain:'W = Qh − |Qc| = 1.672 − 1.045 = 627 kJ.'},
+{title:'Pregunta 2 de 3 · Entropia de la màquina',text:'Quina és la variació d’entropia de la màquina després d’un cicle complet?',opts:['ΔS = 0','ΔS = Qh/Th','ΔS = |Qc|/Tc'],correct:'a',hint:'La màquina acaba el cicle en el mateix estat en què l’ha començat.',explain:'Com que l’entropia és una funció d’estat i la màquina torna a l’estat inicial, ΔS de la màquina = 0.'},
+{title:'Pregunta 3 de 3 · Entropia de l’Univers',text:'Quina suma permet calcular la variació d’entropia de l’Univers (màquina + dues fonts)?',opts:['ΔSt = Qh/Th − |Qc|/Tc','ΔSt = 0 perquè la màquina fa un cicle','ΔSt = −Qh/Th + |Qc|/Tc'],correct:'c',hint:'La font calenta perd entropia i la font freda en guanya; fixa’t en el signe de cada terme.',explain:'ΔSt = −1.672/3.273,15 + 1.045/393,15 ≈ 2,1472 kJ/K.'}
+];
+let qi=0;let qs=qs1;
+function renderQ(){qs=$('exercise').value==='2'?qs2:qs1;const q=qs[qi];$('qTitle').textContent=q.title;$('qText').textContent=q.text;$('qChoices').innerHTML=q.opts.map((o,i)=>`<label class="radio-option"><input type="radio" name="socChoice" value="${['a','b','c'][i]}"><span>${o}</span></label>`).join('');$('sFeedback').className='feedback';$('sFeedback').textContent='';$('hintText').classList.add('hidden');$('hintText').textContent=q.hint;$('progress').textContent=`Pas ${qi+1} de ${qs.length}`;$('nextSoc').classList.add('hidden');$('checkSoc').classList.remove('hidden');$('hintBtn').classList.remove('hidden');}
+$('hintBtn').addEventListener('click',()=>$('hintText').classList.toggle('hidden'));
+$('checkSoc').addEventListener('click',()=>{const selected=document.querySelector('input[name="socChoice"]:checked');const f=$('sFeedback');f.className='feedback';if(!selected){f.classList.add('no');f.textContent='Tria una opció abans de comprovar.';return;}if(selected.value===qs[qi].correct){f.classList.add('ok');f.textContent='Molt bé! '+qs[qi].explain;$('checkSoc').classList.add('hidden');$('hintBtn').classList.add('hidden');if(qi<qs.length-1)$('nextSoc').classList.remove('hidden');else{$('nextSoc').textContent='Torna a començar';$('nextSoc').classList.remove('hidden');}}else{f.classList.add('no');f.textContent='Encara no. Revisa la pista i pensa què representa cada quantitat.';}});
+$('nextSoc').addEventListener('click',()=>{if(qi===qs.length-1)qi=0;else qi++;$('nextSoc').textContent='Continua';renderQ();});
+$('showFull').addEventListener('click',()=>{mode.value='guided';mode.dispatchEvent(new Event('change'));window.scrollTo({top:0,behavior:'smooth'});});
+let p2qi=0;
+function renderP2Q(){
+ const q=qs2[p2qi];
+ $('p2qTitle').textContent=q.title;
+ $('p2qText').textContent=q.text;
+ $('p2qChoices').innerHTML=q.opts.map((o,i)=>`<label class="radio-option"><input type="radio" name="p2socChoice" value="${['a','b','c'][i]}"><span>${o}</span></label>`).join('');
+ $('p2sFeedback').className='feedback';$('p2sFeedback').textContent='';
+ $('p2hintText').textContent=q.hint;$('p2hintText').classList.add('hidden');
+ $('p2progress').textContent=`Pas ${p2qi+1} de ${qs2.length}`;
+ $('p2nextSoc').classList.add('hidden');$('p2checkSoc').classList.remove('hidden');$('p2hintBtn').classList.remove('hidden');
+}
+$('p2hintBtn').addEventListener('click',()=>$('p2hintText').classList.toggle('hidden'));
+$('p2checkSoc').addEventListener('click',()=>{
+ const selected=document.querySelector('input[name="p2socChoice"]:checked');const f=$('p2sFeedback');f.className='feedback';
+ if(!selected){f.classList.add('no');f.textContent='Tria una opció abans de comprovar.';return;}
+ if(selected.value===qs2[p2qi].correct){f.classList.add('ok');f.textContent='Molt bé! '+qs2[p2qi].explain;$('p2checkSoc').classList.add('hidden');$('p2hintBtn').classList.add('hidden');$('p2nextSoc').classList.remove('hidden');if(p2qi===qs2.length-1)$('p2nextSoc').textContent='Torna a començar';}
+ else{f.classList.add('no');f.textContent='Encara no. Revisa la pista i pensa què representa cada quantitat.';}
+});
+$('p2nextSoc').addEventListener('click',()=>{p2qi=p2qi===qs2.length-1?0:p2qi+1;$('p2nextSoc').textContent='Continua';renderP2Q();});
+$('reset').addEventListener('click',()=>{mode.value='guided';mode.dispatchEvent(new Event('change'));document.querySelector('input[name="sign"][value="by"]').checked=true;$('exercise').value='1';updateExercise();$('part').value='a';$('answer').value='';$('answerFeedback').className='feedback';$('part2').value='wp';$('answer2').value='';$('answerFeedback2').className='feedback';document.querySelectorAll('.why-panel').forEach(p=>p.classList.add('hidden'));document.querySelectorAll('.why').forEach(b=>b.textContent='Per què fem servir aquesta equació?');qi=0;renderQ();});
+renderQ();
+
+
+// Entrenament autònom per famílies de problemes. Càlculs deterministes i comprovables.
+let autoCurrent=null;
+const autoFmt=(n,d=2)=>n.toLocaleString('ca-ES',{minimumFractionDigits:d,maximumFractionDigits:d});
+function autoGenerate(){
+ const family=$('autoFamily').value, level=Number($('autoLevel').value), mode=$('autoMode').value;
+ const ri=(a,b)=>Math.floor(Math.random()*(b-a+1))+a;
+ let title='',statement='',tasks=[],solution='',hint='',extra='';
+ if(family==='motor'){
+  const Qh=ri(600,1500)*(level===1?1:level===2?1:1), etaPct=ri(level===1?20:level===2?25:18,level===1?40:level===2?45:55), W=Qh*etaPct/100, Qc=Qh-W;
+  title='Motor tèrmic'; statement=`Un motor tèrmic absorbeix Q<sub>h</sub> = ${Qh} kJ per cicle i té una eficiència real del ${etaPct} %. Suposa que completa cicles i que no hi ha altres formes d'intercanvi d'energia.`;
+  tasks=[{id:'eta',label:'Eficiència η (%)',value:etaPct,tol:.15,unit:'%'},{id:'w',label:'Treball net W (kJ)',value:W,tol:.2,unit:'kJ'},{id:'qc',label:'Mòdul de la calor cedida |Qc| (kJ)',value:Qc,tol:.2,unit:'kJ'}];
+  solution=`<div class="step"><h3>1. Eficiència</h3><div class="equation">η = W/Q<sub>h</sub> → W = η Q<sub>h</sub></div><p>L'eficiència s'expressa com una fracció: ${etaPct} % = ${(etaPct/100).toLocaleString('ca-ES',{maximumFractionDigits:4})}.</p><div class="substitution">W = ${etaPct/100} × ${Qh} = <b>${autoFmt(W)} kJ</b></div></div><div class="step"><h3>2. Balanç d'energia</h3><div class="equation">Q<sub>h</sub> = W + |Q<sub>c</sub>|</div><p>En un cicle complet, ΔU = 0. La calor absorbida es reparteix entre treball produït i calor cedida.</p><div class="substitution">|Q<sub>c</sub>| = ${Qh} − ${autoFmt(W)} = <b>${autoFmt(Qc)} kJ</b></div></div>`;
+  hint='Pista 1: transforma el percentatge d’eficiència en una fracció. Pista 2: a continuació, aplica el balanç d’energia del cicle.';
+ } else if(family==='second'){
+  const ThC=ri(250,700),TcC=ri(20,150),Th=ThC+273.15,Tc=TcC+273.15,Qh=ri(500,1800),etaC=1-Tc/Th, Wmax=Qh*etaC;
+  const possible=Math.random()<.5, claimedW=possible?Wmax*ri(45,85)/100:Wmax*(1+ri(5,25)/100), eta=claimedW/Qh;
+  title='El segon principi: és possible aquesta màquina?'; statement=`Un inventor afirma que ha construït una màquina tèrmica que treballa entre una font calenta a ${ThC} °C i una de freda a ${TcC} °C. La màquina absorbeix Q<sub>h</sub> = ${Qh} kJ i produeix W = ${autoFmt(claimedW)} kJ per cicle. Decideix si la proposta és possible segons el segon principi i justifica-ho comparant eficiències.`;
+  tasks=[{id:'etac',label:'Eficiència màxima de Carnot ηC (%)',value:etaC*100,tol:.3,unit:'%'},{id:'etam',label:'Eficiència afirmada η (%)',value:eta*100,tol:.3,unit:'%'},{id:'wmax',label:'Treball màxim reversible (kJ)',value:Wmax,tol:.5,unit:'kJ'}];
+  solution=`<div class="step"><h3>1. Temperatures absolutes</h3><div class="substitution">T<sub>h</sub> = ${ThC} + 273,15 = ${autoFmt(Th)} K; T<sub>c</sub> = ${TcC} + 273,15 = ${autoFmt(Tc)} K</div></div><div class="step"><h3>2. Límit de Carnot</h3><div class="equation">η<sub>C</sub> = 1 − T<sub>c</sub>/T<sub>h</sub></div><div class="substitution">η<sub>C</sub> = 1 − ${autoFmt(Tc)}/${autoFmt(Th)} = <b>${autoFmt(etaC*100)} %</b></div></div><div class="step"><h3>3. Eficiència i treball màxim</h3><div class="equation">η = W/Q<sub>h</sub> &nbsp;&nbsp; W<sub>max</sub> = Q<sub>h</sub>η<sub>C</sub></div><div class="substitution">η = ${autoFmt(claimedW)}/${Qh} = <b>${autoFmt(eta*100)} %</b><br>W<sub>max</sub> = ${Qh} × ${autoFmt(etaC,4)} = <b>${autoFmt(Wmax)} kJ</b></div><p class="result">${possible?'La proposta és possible segons aquest criteri: l’eficiència afirmada no supera el límit de Carnot.':'La proposta és impossible: l’eficiència afirmada supera el límit de Carnot i viola el segon principi.'}</p></div>`;
+  hint='Pista 1: converteix les dues temperatures a kelvins. Pista 2: calcula ηC i compara-la amb W/Qh. Una màquina no pot superar el límit de Carnot.';
+  extra=`<p><b>Conclusió:</b> la màquina és ${possible?'possible':'impossible'} segons el segon principi.</p>`;
+ } else if(family==='compressor'){
+  const flow=ri(36,108),h1=ri(240,320)+Math.random(),dh=ri(65,145)+Math.random()*0.8,h2=h1+dh,loss=ri(200,700),mdot=flow/3600,Pair=mdot*(h2-h1),P=Pair+loss/1000;
+  title='Potència d’un compressor'; statement=`Un compressor d’aire manté un cabal màssic constant de ${flow} kg/h. L’entalpia específica passa de h<sub>1</sub> = ${autoFmt(h1)} kJ/kg a h<sub>2</sub> = ${autoFmt(h2)} kJ/kg. Les pèrdues de potència són ${loss} W. Suposa negligibles els canvis d’energia cinètica i potencial. Calcula la potència necessària, considerant les pèrdues com una potència addicional.`;
+  tasks=[{id:'mdot',label:'Cabal màssic (kg/s)',value:mdot,tol:.0002,unit:'kg/s'},{id:'dh',label:'Increment d’entalpia Δh (kJ/kg)',value:dh,tol:.15,unit:'kJ/kg'},{id:'p',label:'Potència necessària (kW)',value:P,tol:.03,unit:'kW'}];
+  solution=`<div class="step"><h3>1. Convertim el cabal</h3><div class="equation">ṁ = cabal (kg/h) / 3600</div><div class="substitution">ṁ = ${flow}/3600 = <b>${autoFmt(mdot,4)} kg/s</b></div></div><div class="step"><h3>2. Increment d’entalpia</h3><div class="equation">Δh = h<sub>2</sub> − h<sub>1</sub></div><div class="substitution">Δh = ${autoFmt(h2)} − ${autoFmt(h1)} = <b>${autoFmt(dh)} kJ/kg</b></div></div><div class="step"><h3>3. Potència</h3><div class="equation">P<sub>aire</sub> = ṁ Δh; &nbsp; P = P<sub>aire</sub> + P<sub>pèrdues</sub></div><div class="substitution">P = ${autoFmt(mdot,4)} × ${autoFmt(dh)} + ${loss/1000} = <b>${autoFmt(P)} kW</b></div></div>`;
+  hint='Pista 1: transforma el cabal de kg/h a kg/s. Pista 2: calcula Δh = h₂ − h₁. Després multiplica ṁ per Δh i suma les pèrdues en kW.';
+ } else if(family==='cooling'){
+  const mass=ri(40,120),temp=ri(10,25),cp=4.18,L=333.5,COP=ri(2,5),qkg=cp*temp+L,Qhour=mass*qkg,Pcool=Qhour/3600,Pinput=Pcool/COP;
+  title='Refrigeració i producció de gel'; statement=`Un refrigerador de COP = ${COP} congela ${mass} kg d’aigua cada hora. L’aigua entra a ${temp} °C i el gel final és a 0 °C. Utilitza c<sub>e</sub> = 4,18 kJ/(kg·°C) i L<sub>f</sub> = 333,5 kJ/kg. Suposa negligibles les pèrdues externes. Calcula la calor que cal extreure per kg d’aigua, la potència frigorífica i la potència elèctrica consumida.`;
+  tasks=[{id:'qkg',label:'Calor extreta per kg (kJ/kg)',value:qkg,tol:.2,unit:'kJ/kg'},{id:'pcool',label:'Potència frigorífica (kW)',value:Pcool,tol:.03,unit:'kW'},{id:'pin',label:'Potència consumida (kW)',value:Pinput,tol:.03,unit:'kW'}];
+  solution=`<div class="step"><h3>1. Calor sensible i latent per kg</h3><div class="equation">q = c<sub>e</sub> ΔT + L<sub>f</sub></div><div class="substitution">q = 4,18 × ${temp} + 333,5 = <b>${autoFmt(qkg)} kJ/kg</b></div><p>Primer es refreda l’aigua fins a 0 °C; després se n’extreu la calor latent per congelar-la.</p></div><div class="step"><h3>2. Potència frigorífica</h3><div class="equation">P<sub>fred</sub> = ṁ q</div><div class="substitution">Q per hora = ${mass} × ${autoFmt(qkg)} = ${autoFmt(Qhour,1)} kJ/h<br>P<sub>fred</sub> = ${autoFmt(Qhour,1)}/3600 = <b>${autoFmt(Pcool)} kW</b></div></div><div class="step"><h3>3. Potència consumida</h3><div class="equation">COP = P<sub>fred</sub>/P<sub>entrada</sub></div><div class="substitution">P<sub>entrada</sub> = ${autoFmt(Pcool)}/${COP} = <b>${autoFmt(Pinput)} kW</b></div></div>`;
+  hint='Pista 1: calcula la calor sensible per refredar l’aigua fins a 0 °C i suma-hi la calor latent de congelació. Pista 2: passa de kJ/h a kW dividint per 3600. Finalment, COP = Pfred/Pentrada.';
+ } else if(family==='diesel'){
+  const T1=ri(285,315),r=ri(14,18),rho=ri(17,22)/10,gamma=1.4,cp=1.005,cv=0.718;
+  const T2=T1*Math.pow(r,gamma-1),T3=T2*rho,T4=T3*Math.pow(rho/r,gamma-1);
+  const qin=cp*(T3-T2),qout=cv*(T4-T1),wnet=qin-qout,eta=wnet/qin;
+  title='Motor dièsel · cicle ideal aire-estàndard';
+  statement=`Un motor dièsel s'aproxima mitjançant un cicle ideal aire-estàndard amb relació de compressió r = ${r} i relació de tall ρ = ${autoFmt(rho,1)}. L'aire entra a la compressió a T<sub>1</sub> = ${T1} K. Considera γ = 1,4, c<sub>p</sub> = 1,005 kJ/(kg·K) i c<sub>v</sub> = 0,718 kJ/(kg·K). Suposa gas ideal amb calors específiques constants. Calcula el rendiment tèrmic, la calor aportada i el treball net específics.`;
+  tasks=[{id:'etaDiesel',label:'Rendiment tèrmic (%)',value:eta*100,tol:.35,unit:'%'},{id:'qinDiesel',label:'Calor aportada qin (kJ/kg)',value:qin,tol:.8,unit:'kJ/kg'},{id:'wDiesel',label:'Treball net específic (kJ/kg)',value:wnet,tol:.8,unit:'kJ/kg'}];
+  solution=`<div class="step"><h3>1. Estat després de la compressió isentròpica (1 → 2)</h3><div class="equation">T<sub>2</sub> = T<sub>1</sub> r<sup>γ−1</sup></div><div class="substitution">T<sub>2</sub> = ${T1} × ${r}<sup>0,4</sup> = <b>${autoFmt(T2)} K</b></div><p>En el model aire-estàndard, la compressió és adiabàtica i reversible.</p></div><div class="step"><h3>2. Aportació de calor a pressió constant (2 → 3)</h3><div class="equation">ρ = V<sub>3</sub>/V<sub>2</sub>; &nbsp; T<sub>3</sub> = ρ T<sub>2</sub></div><div class="substitution">T<sub>3</sub> = ${autoFmt(rho,1)} × ${autoFmt(T2)} = <b>${autoFmt(T3)} K</b><br>q<sub>in</sub> = c<sub>p</sub>(T<sub>3</sub> − T<sub>2</sub>) = <b>${autoFmt(qin)} kJ/kg</b></div></div><div class="step"><h3>3. Expansió i calor cedida</h3><div class="equation">T<sub>4</sub> = T<sub>3</sub>(ρ/r)<sup>γ−1</sup>; &nbsp; q<sub>out</sub> = c<sub>v</sub>(T<sub>4</sub> − T<sub>1</sub>)</div><div class="substitution">T<sub>4</sub> = <b>${autoFmt(T4)} K</b><br>q<sub>out</sub> = <b>${autoFmt(qout)} kJ/kg</b></div></div><div class="step"><h3>4. Treball net i rendiment</h3><div class="equation">w<sub>net</sub> = q<sub>in</sub> − q<sub>out</sub>; &nbsp; η = w<sub>net</sub>/q<sub>in</sub></div><div class="substitution">w<sub>net</sub> = ${autoFmt(qin)} − ${autoFmt(qout)} = <b>${autoFmt(wnet)} kJ/kg</b><br>η = ${autoFmt(wnet)}/${autoFmt(qin)} = <b>${autoFmt(eta*100)} %</b></div><p>És un model idealitzat: un motor real té pèrdues, fricció, transferència de calor i propietats del gas variables.</p></div>`;
+  hint='Pista 1: calcula T₂ amb la relació de compressió i l’expressió isentròpica. Pista 2: com que 2 → 3 és a pressió constant, T₃/T₂ = ρ. Després calcula T₄, qin, qout i finalment η = 1 − qout/qin.';
+ } else if(family==='refrigeration'){
+  const load=ri(8,24),COP=ri(2,5),Pin=load/COP,Qhot=load+Pin;
+  title='Màquina frigorífica · cambra refrigerada';
+  statement=`Una cambra frigorífica necessita extreure calor a una potència de ${load} kW. La màquina funciona amb un COP frigorífic de ${COP}. Suposa funcionament estacionari i pèrdues ja incloses en el COP indicat. Calcula la potència elèctrica consumida i la potència tèrmica cedida al local o a l'exterior pel condensador.`;
+  tasks=[{id:'pinputFridge',label:'Potència elèctrica consumida (kW)',value:Pin,tol:.04,unit:'kW'},{id:'qhotFridge',label:'Potència cedida al focus calent (kW)',value:Qhot,tol:.05,unit:'kW'},{id:'copFridge',label:'COP frigorífic',value:COP,tol:.01,unit:''}];
+  solution=`<div class="step"><h3>1. Relació del COP frigorífic</h3><div class="equation">COP<sub>F</sub> = Q̇<sub>fred</sub>/P<sub>el</sub></div><p>El COP relaciona la potència de refrigeració útil amb la potència elèctrica d'entrada. No té unitats.</p><div class="substitution">P<sub>el</sub> = Q̇<sub>fred</sub>/COP = ${load}/${COP} = <b>${autoFmt(Pin)} kW</b></div></div><div class="step"><h3>2. Balanç d'energia del refrigerador</h3><div class="equation">Q̇<sub>calent</sub> = Q̇<sub>fred</sub> + P<sub>el</sub></div><p>La màquina extreu calor de la cambra i, a més, allibera a l'exterior l'energia elèctrica que consumeix.</p><div class="substitution">Q̇<sub>calent</sub> = ${load} + ${autoFmt(Pin)} = <b>${autoFmt(Qhot)} kW</b></div></div><div class="step"><h3>3. Comprovació del COP</h3><div class="equation">COP<sub>F</sub> = ${load}/${autoFmt(Pin)} = ${COP}</div><p>La potència cedida al focus calent és superior a la potència frigorífica perquè inclou també l'energia elèctrica consumida.</p></div>`;
+  hint='Pista 1: aïlla la potència elèctrica de COP = potència frigorífica / potència elèctrica. Pista 2: aplica el balanç d’energia: la calor cedida a l’exterior és la calor extreta de la cambra més la potència elèctrica consumida.';
+ } else if(family==='otto'){
+  const r=ri(7,11),gamma=1.4,T1=ri(285,310),T3=ri(1900,2300),cv=0.718;
+  const T2=T1*Math.pow(r,gamma-1),T4=T3/Math.pow(r,gamma-1),qin=cv*(T3-T2),qout=cv*(T4-T1),wnet=qin-qout,eta=wnet/qin;
+  title='Motor de gasolina · cicle ideal Otto';
+  statement=`Un motor de gasolina es modelitza amb un cicle ideal Otto aire-estàndard. La relació de compressió és r = ${r}, l’aire entra a T₁ = ${T1} K i després de l’aportació de calor a volum constant arriba a T₃ = ${T3} K. Considera γ = 1,4 i cᵥ = 0,718 kJ/(kg·K), amb gas ideal i calors específiques constants. Calcula les temperatures T₂ i T₄, la calor aportada i el rendiment tèrmic.`;
+  tasks=[{id:'t2Otto',label:'Temperatura T₂ (K)',value:T2,tol:2,unit:'K'},{id:'qinOtto',label:'Calor aportada qᵢₙ (kJ/kg)',value:qin,tol:1,unit:'kJ/kg'},{id:'etaOtto',label:'Rendiment tèrmic (%)',value:eta*100,tol:.4,unit:'%'}];
+  solution=`<div class="step"><h3>1. Compressió isentròpica (1 → 2)</h3><div class="equation">T₂ = T₁ r<sup>γ−1</sup></div><div class="substitution">T₂ = ${T1} × ${r}<sup>0,4</sup> = <b>${autoFmt(T2)} K</b></div><p>En el cicle ideal, la compressió és adiabàtica i reversible.</p></div><div class="step"><h3>2. Aportació de calor a volum constant (2 → 3)</h3><div class="equation">qᵢₙ = cᵥ(T₃ − T₂)</div><div class="substitution">qᵢₙ = 0,718 × (${T3} − ${autoFmt(T2)}) = <b>${autoFmt(qin)} kJ/kg</b></div></div><div class="step"><h3>3. Expansió isentròpica (3 → 4)</h3><div class="equation">T₄ = T₃/r<sup>γ−1</sup></div><div class="substitution">T₄ = ${T3}/${r}<sup>0,4</sup> = <b>${autoFmt(T4)} K</b><br>qₒᵤₜ = cᵥ(T₄ − T₁) = <b>${autoFmt(qout)} kJ/kg</b></div></div><div class="step"><h3>4. Treball net i rendiment</h3><div class="equation">wₙₑₜ = qᵢₙ − qₒᵤₜ; &nbsp; η = 1 − qₒᵤₜ/qᵢₙ</div><div class="substitution">wₙₑₜ = ${autoFmt(qin)} − ${autoFmt(qout)} = <b>${autoFmt(wnet)} kJ/kg</b><br>η = <b>${autoFmt(eta*100)} %</b></div><p>És un cicle idealitzat; un motor real presenta pèrdues i propietats del gas variables.</p></div>`;
+  hint='Pista 1: en 1 → 2, usa T₂ = T₁r^(γ−1). Pista 2: l’aportació de calor 2 → 3 és a volum constant. Calcula després T₄, la calor rebutjada i η = 1 − qout/qin.';
+ } else if(family==='turbine'){
+  const mdot=ri(8,28)/10,h1=ri(3200,3500),h2s=ri(2100,2350),lossH=ri(100,250),h2=h2s+lossH;
+  const Pideal=mdot*(h1-h2s),Pactual=mdot*(h1-h2),eta=Pactual/Pideal;
+  title='Turbina de vapor · potència i rendiment isentròpic';
+  statement=`Una turbina de vapor opera en règim estacionari amb cabal màssic ṁ = ${autoFmt(mdot,1)} kg/s. L’entalpia d’entrada és h₁ = ${h1} kJ/kg; l’entalpia de sortida real és h₂ = ${h2} kJ/kg i la de sortida isentròpica ideal seria h₂s = ${h2s} kJ/kg. Suposa negligibles els canvis d’energia cinètica i potencial i la transferència de calor. Calcula la potència real, la potència isentròpica ideal i el rendiment isentròpic.`;
+  tasks=[{id:'pTurbine',label:'Potència real (kW)',value:Pactual,tol:.5,unit:'kW'},{id:'pIdealTurbine',label:'Potència isentròpica ideal (kW)',value:Pideal,tol:.5,unit:'kW'},{id:'etaTurbine',label:'Rendiment isentròpic (%)',value:eta*100,tol:.3,unit:'%'}];
+  solution=`<div class="step"><h3>1. Potència real de la turbina</h3><div class="equation">P = ṁ(h₁ − h₂)</div><p>En règim estacionari i amb canvis cinètics i potencials negligibles, la caiguda d’entalpia es transforma en treball específic de l’eix.</p><div class="substitution">P = ${autoFmt(mdot,1)} × (${h1} − ${h2}) = <b>${autoFmt(Pactual)} kW</b></div></div><div class="step"><h3>2. Potència ideal isentròpica</h3><div class="equation">Pₛ = ṁ(h₁ − h₂s)</div><div class="substitution">Pₛ = ${autoFmt(mdot,1)} × (${h1} − ${h2s}) = <b>${autoFmt(Pideal)} kW</b></div><p>La sortida isentròpica és una referència ideal amb la mateixa entalpia d’entrada i la mateixa pressió de sortida.</p></div><div class="step"><h3>3. Rendiment isentròpic</h3><div class="equation">ηₛ = P/Pₛ = (h₁ − h₂)/(h₁ − h₂s)</div><div class="substitution">ηₛ = ${autoFmt(Pactual)} / ${autoFmt(Pideal)} = <b>${autoFmt(eta*100)} %</b></div><p>La potència real és inferior a la ideal perquè les irreversibilitats augmenten l’entalpia de sortida real.</p></div>`;
+  hint='Pista 1: calcula la caiguda d’entalpia real i multiplica-la pel cabal en kg/s per obtenir kW. Pista 2: repeteix-ho amb h₂s per a la potència ideal. El rendiment és la potència real dividida per la ideal.';
+ } else if(family==='dieselnoise'){
+  title='15 · Per què els motors dièsel fan el soroll característic del «picat»?';
+  statement='Explica per què els motors dièsel poden produir el soroll característic del picat, especialment quan el motor és fred.';
+  solution=`<div class="step"><h3>Resposta del material original</h3><p>Els motors dièsel fan el típic soroll de picat, sobretot en fred, perquè a diferència dels Otto, la combustió es produeix a tots els punts de la mescla i no existeix un front de flama que avança. Llavors, la combustió és molt més brusca i produeix aquest soroll típic.</p></div><div class="step"><h3>Nota per a la interpretació</h3><p>Aquesta és la resposta transcrita del document aportat. La combustió real en un dièsel és més complexa: el soroll de picat s’associa sobretot a l’augment ràpid de pressió quan s’encén de cop el combustible acumulat durant el retard d’encesa.</p></div>`;
+  hint='Pista: pensa en el retard d’encesa, en la quantitat de combustible que s’acumula abans d’encendre’s i en la rapidesa amb què augmenta la pressió.';
+ } else if(family==='enginegeometry'){
+  const D=65, C=67.7, nc=4, r=9;
+  const Vc=Math.PI/4*D*D*C/1000, Vt=nc*Vc, Vmin=Vc/(r-1);
+  title='16 · Cilindrada i volum de la cambra de combustió';
+  statement=`Un motor tèrmic de n<sub>c</sub> = ${nc} cilindres té un diàmetre D = ${D} mm i una cursa C = ${C} mm. La relació de compressió és r = ${r}:1. Determina la cilindrada unitària V<sub>c</sub>, la cilindrada total V<sub>t</sub> i el volum mínim V<sub>min</sub> de la cambra de combustió.`;
+  tasks=[{id:'vc',label:'Cilindrada unitària Vc (cm³)',value:Vc,tol:.3,unit:'cm³'},{id:'vt',label:'Cilindrada total Vt (cm³)',value:Vt,tol:.6,unit:'cm³'},{id:'vmin',label:'Volum mínim Vmin (cm³)',value:Vmin,tol:.15,unit:'cm³'}];
+  solution=`<div class="step"><h3>1. Cilindrada unitària</h3><div class="equation">V<sub>c</sub> = (π/4)D²C</div><p>Amb D i C en mil·límetres, el resultat surt en mm³. Per passar a cm³, dividim per 1000.</p><div class="substitution">V<sub>c</sub> = (π/4) × ${D}² × ${C} = <b>${autoFmt(Vc)} cm³</b></div></div><div class="step"><h3>2. Cilindrada total</h3><div class="equation">V<sub>t</sub> = n<sub>c</sub> V<sub>c</sub></div><div class="substitution">V<sub>t</sub> = ${nc} × ${autoFmt(Vc)} = <b>${autoFmt(Vt)} cm³</b></div></div><div class="step"><h3>3. Volum mínim de la cambra</h3><div class="equation">r = (V<sub>c</sub> + V<sub>min</sub>)/V<sub>min</sub> = 1 + V<sub>c</sub>/V<sub>min</sub></div><div class="substitution">V<sub>min</sub> = V<sub>c</sub>/(r − 1) = ${autoFmt(Vc)}/(${r} − 1) = <b>${autoFmt(Vmin)} cm³</b></div></div><p class="result">Resultats de referència del document: Vc ≈ 224,65 cm³; Vt ≈ 898,60 cm³; Vmin ≈ 28,08 cm³. Les petites diferències depenen de l’arrodoniment.</p>`;
+  hint='Pista 1: calcula el volum del cilindre amb Vc = (π/4)D²C i converteix de mm³ a cm³. Pista 2: multiplica per quatre per obtenir Vt. Finalment, aïlla Vmin a partir de r = (Vc + Vmin)/Vmin.';
+ } else if(family==='turbineaction'){
+  title='17 · Diferència entre turbines d’acció i de reacció';
+  statement='Quina diferència hi ha entre les turbines d’acció i les turbines de reacció? Explica el paper de les toveres, els àleps fixos i els mòbils.';
+  solution=`<div class="step"><h3>Resposta del material original</h3><p>A les turbines d’acció el vapor a través de toveres acciona directament els àleps d’un rodet que és obligat a girar. A les turbines de reacció se situen una sèrie de rodets, uns de fixos i altres de mòbils, intercalats, de manera que el vapor passa entre ells fent girar els mòbils, ja que els fixos van orientant el vapor cap a ells com si fossin toveres. Es forma una acció en girar els rodets mòbils i una reacció en el canvi d’orientació del vapor en els fixos. El diàmetre dels rodets és creixent ja que el vapor va perdent pressió i guanya velocitat.</p></div><div class="step"><h3>Idea clau</h3><p>En una turbina d’acció, la caiguda principal de pressió té lloc a les toveres fixes; en una de reacció, també hi ha una caiguda de pressió als àleps mòbils.</p></div>`;
+  hint='Pista: localitza on es produeix la caiguda de pressió del vapor i diferencia els elements fixos dels mòbils.';
+ } else {
+  const ThC=ri(350,550),TcC=ri(10,40),Th=ThC+273.15,Tc=TcC+273.15,eta=1-Tc/Th,W=ri(800,2400),Qh=W/eta,Qc=Qh-W,pc=48.8e6,fuel=Qh*1000/pc;
+  title='Cicle ideal de Carnot i combustible'; statement=`Un motor ideal de Carnot produeix W = ${W} J per cicle. Treballa entre un focus calent a ${ThC} °C i un focus fred a ${TcC} °C. El combustible té un poder calorífic de 48,8 MJ/kg. Determina el rendiment, la calor absorbida i cedida per cicle i el consum de combustible per cicle. Suposa que tota l’energia del combustible transferida al motor esdevé calor absorbida del focus calent.`;
+  tasks=[{id:'eta',label:'Rendiment de Carnot (%)',value:eta*100,tol:.25,unit:'%'},{id:'qh',label:'Calor absorbida Qh (J)',value:Qh,tol:Math.max(2,Qh*.002),unit:'J'},{id:'fuel',label:'Combustible per cicle (g)',value:fuel*1000,tol:.003,unit:'g'}];
+  solution=`<div class="step"><h3>1. Rendiment de Carnot</h3><div class="equation">η = 1 − T<sub>c</sub>/T<sub>h</sub></div><div class="substitution">T<sub>h</sub> = ${autoFmt(Th)} K; T<sub>c</sub> = ${autoFmt(Tc)} K<br>η = 1 − ${autoFmt(Tc)}/${autoFmt(Th)} = <b>${autoFmt(eta*100)} %</b></div></div><div class="step"><h3>2. Calors per cicle</h3><div class="equation">η = W/Q<sub>h</sub>; &nbsp; W = Q<sub>h</sub> − |Q<sub>c</sub>|</div><div class="substitution">Q<sub>h</sub> = ${W}/${autoFmt(eta,4)} = <b>${autoFmt(Qh)} J</b><br>|Q<sub>c</sub>| = ${autoFmt(Qh)} − ${W} = <b>${autoFmt(Qc)} J</b></div></div><div class="step"><h3>3. Consum de combustible</h3><div class="equation">m = Q<sub>h</sub>/p</div><p>Converteix el poder calorífic a J/kg: 48,8 MJ/kg = 48.800.000 J/kg.</p><div class="substitution">m = ${autoFmt(Qh)} / 48.800.000 = <b>${autoFmt(fuel*1000,4)} g/cicle</b></div></div>`;
+  hint='Pista 1: passa les temperatures a kelvins i calcula el rendiment de Carnot. Pista 2: a partir de η = W/Qh, aïlla Qh. Després, aplica el balanç d’energia i divideix Qh pel poder calorífic.';
+ }
+ autoCurrent={tasks,solution,family,isTheory:family==='dieselnoise'||family==='turbineaction'};
+ const isTheoryOnly=autoCurrent.isTheory;
+ $('autoProblem').innerHTML=`<h3>${title}</h3><p>${statement}</p><p class="small muted">${isTheoryOnly?'Intenta respondre amb les teves paraules abans de consultar la resposta.':'Arrodoneix els resultats i indica les unitats abans d’obrir la solució.'}</p>`;
+ $('autoProblem').classList.remove('hidden');$('autoWork').classList.remove('hidden');
+ $('autoAnswerInputs').innerHTML=tasks.map(t=>`<div class="answer-box" style="margin:12px 0"><div><label for="auto-${t.id}">${t.label}</label><input id="auto-${t.id}" type="text" inputmode="decimal" placeholder="Escriu el resultat"></div></div>`).join('');
+ $('autoAnswerInputs').classList.toggle('hidden',isTheoryOnly);
+ $('autoCheck').classList.toggle('hidden',isTheoryOnly);
+ $('autoHints').textContent=hint;$('autoHints').classList.toggle('hidden',mode==='guided');
+ $('autoSolution').innerHTML=solution;$('autoSolution').classList.toggle('hidden',mode!=='guided');
+ $('autoShowSolution').textContent=mode==='guided'?'Amaga la resolució':'Mostra la resolució explicada';
+ $('autoFeedback').className='feedback';$('autoFeedback').textContent='';
+}
+$('autoGenerate').addEventListener('click',autoGenerate);
+$('autoCheck').addEventListener('click',()=>{if(!autoCurrent||autoCurrent.isTheory)return;let correct=0,details=[];autoCurrent.tasks.forEach(t=>{const raw=$('auto-'+t.id).value.trim().replace(',','.');const n=Number(raw);if(raw!==''&&Number.isFinite(n)&&Math.abs(n-t.value)<=t.tol){correct++;details.push(`✓ ${t.label}: correcte.`)}else details.push(`• ${t.label}: revisa el càlcul i les unitats.`)});const f=$('autoFeedback');f.className='feedback '+(correct===autoCurrent.tasks.length?'ok':'no');f.innerHTML=`<b>${correct} de ${autoCurrent.tasks.length} respostes correctes.</b><br>${details.join('<br>')}`;});
+$('autoShowSolution').addEventListener('click',()=>{const panel=$('autoSolution');panel.classList.toggle('hidden');$('autoShowSolution').textContent=panel.classList.contains('hidden')?'Mostra la resolució explicada':'Amaga la resolució';});
+
+// Generador determinista per fórmules amb dades aleatòries físicament coherents
+let currentGenerated = null;
+const randInt=(a,b)=>Math.floor(Math.random()*(b-a+1))+a;
+const fmt=(n,d=2)=>n.toLocaleString('ca-ES',{minimumFractionDigits:d,maximumFractionDigits:d});
+function generateThermalProblem(){
+  const type=$('genType').value;
+  const ThC=randInt(350,900), TcC=randInt(60,180);
+  const Th=ThC+273.15, Tc=TcC+273.15;
+  const Qh=randInt(700,2200);
+  const etaC=1-Tc/Th;
+  const qRev=Qh*Tc/Th;
+  // Qc entre el valor reversible i Qh: assegura Wp >= 0 i ΔS_Univers >= 0.
+  const frac=randInt(15,65)/100;
+  const Qc=qRev+frac*(Qh-qRev);
+  const W=Qh-Qc;
+  const Wrev=Qh*etaC;
+  const Wp=Wrev-W;
+  const eta=W/Qh;
+  const etaS=eta/etaC;
+  const dSm=0;
+  const dShot=-Qh/Th;
+  const dScold=Qc/Tc;
+  const dSt=dShot+dScold;
+  const id=Date.now();
+  let tasks=[], solution='';
+  if(type==='entropy'){
+    tasks=[
+      {id:'wp',label:'Treball perdut Wp (kJ)',value:Wp,tol:Math.max(.5,Qh*.002),unit:'kJ'},
+      {id:'sm',label:'Variació d’entropia de la màquina ΔS (kJ/K)',value:dSm,tol:.01,unit:'kJ/K'},
+      {id:'st',label:'Variació d’entropia de l’Univers ΔSt (kJ/K)',value:dSt,tol:.01,unit:'kJ/K'}
+    ];
+    solution=`
+      <div class="step"><h3>1. Balanç d'energia i treball net</h3><div class="equation">W = Q<sub>h</sub> − |Q<sub>c</sub>|</div>
+      <p>Q<sub>h</sub> és la calor absorbida de la font calenta; |Q<sub>c</sub>| és la calor cedida a la font freda; W és el treball net produït.</p>
+      <div class="substitution">W = ${fmt(Qh,0)} − ${fmt(Qc,2)} = <b>${fmt(W,2)} kJ</b></div></div>
+      <div class="step"><h3>2. Treball perdut per irreversibilitats</h3><div class="equation">W<sub>p</sub> = W<sub>rev</sub> − W = Q<sub>h</sub>(1 − T<sub>c</sub>/T<sub>h</sub>) − W</div>
+      <p>Les temperatures absolutes són T<sub>h</sub> = ${fmt(Th,2)} K i T<sub>c</sub> = ${fmt(Tc,2)} K. W<sub>rev</sub> és el treball màxim reversible entre les mateixes fonts.</p>
+      <div class="substitution">W<sub>p</sub> = ${fmt(Qh,0)} × (1 − ${fmt(Tc,2)}/${fmt(Th,2)}) − ${fmt(W,2)} ≈ <b>${fmt(Wp,2)} kJ</b></div></div>
+      <div class="step"><h3>3. Entropia de la màquina per cicle</h3><div class="equation">ΔS<sub>màquina</sub> = 0</div>
+      <p>L'entropia és una funció d'estat. En un cicle complet, la màquina torna al seu estat inicial; per tant, la seua variació neta d'entropia és zero.</p></div>
+      <div class="step"><h3>4. Variació d'entropia de l'Univers</h3><div class="equation">ΔS<sub>t</sub> = −Q<sub>h</sub>/T<sub>h</sub> + |Q<sub>c</sub>|/T<sub>c</sub></div>
+      <p>La font calenta perd entropia en cedir calor; la font freda en guanya en rebre-la. Les temperatures es converteixen a kelvins i les fonts es consideren a temperatura constant.</p>
+      <div class="substitution">ΔS<sub>t</sub> = −${fmt(Qh,0)}/${fmt(Th,2)} + ${fmt(Qc,2)}/${fmt(Tc,2)} ≈ <b>${fmt(dSt,3)} kJ/K</b></div>
+      <p class="result">Com que ΔS<sub>t</sub> &gt; 0, el procés és irreversible i compleix el segon principi.</p></div>`;
+  } else {
+    tasks=[
+      {id:'eta',label:'Eficiència real η (%)',value:eta*100,tol:.25,unit:'%'},
+      {id:'etas',label:'Eficiència segons el segon principi ηs (%)',value:etaS*100,tol:.5,unit:'%'},
+      {id:'wp',label:'Treball perdut Wp (kJ)',value:Wp,tol:Math.max(.5,Qh*.002),unit:'kJ'}
+    ];
+    solution=`
+      <div class="step"><h3>1. Eficiència real</h3><div class="equation">η = W/Q<sub>h</sub></div><p>W és el treball net produït i Q<sub>h</sub> és la calor absorbida de la font calenta.</p><div class="substitution">W = Q<sub>h</sub> − |Q<sub>c</sub>| = ${fmt(Qh,0)} − ${fmt(Qc,2)} = ${fmt(W,2)} kJ<br>η = ${fmt(W,2)}/${fmt(Qh,0)} ≈ <b>${fmt(eta*100,2)} %</b></div></div>
+      <div class="step"><h3>2. Eficiència màxima de Carnot</h3><div class="equation">η<sub>C</sub> = 1 − T<sub>c</sub>/T<sub>h</sub></div><p>T<sub>h</sub> = ${fmt(Th,2)} K i T<sub>c</sub> = ${fmt(Tc,2)} K. Les temperatures absolutes s'han d'expressar en kelvins.</p><div class="substitution">η<sub>C</sub> = 1 − ${fmt(Tc,2)}/${fmt(Th,2)} ≈ ${fmt(etaC*100,2)} %</div></div>
+      <div class="step"><h3>3. Eficiència segons el segon principi</h3><div class="equation">η<sub>s</sub> = η/η<sub>C</sub></div><p>Compara el rendiment real amb el límit reversible entre les mateixes fonts.</p><div class="substitution">η<sub>s</sub> = ${fmt(eta*100,2)} % / ${fmt(etaC*100,2)} % ≈ <b>${fmt(etaS*100,2)} %</b></div></div>
+      <div class="step"><h3>4. Treball perdut</h3><div class="equation">W<sub>p</sub> = Q<sub>h</sub>η<sub>C</sub> − W</div><p>És la diferència entre el treball màxim reversible i el treball que produeix la màquina real.</p><div class="substitution">W<sub>p</sub> = ${fmt(Qh,0)} × ${fmt(etaC,4)} − ${fmt(W,2)} ≈ <b>${fmt(Wp,2)} kJ</b></div></div>`;
+  }
+  currentGenerated={id,type,ThC,TcC,Th,Tc,Qh,Qc,W,Wp,eta,etaC,etaS,dSm,dSt,tasks,solution};
+  $('generatedProblem').classList.remove('hidden');
+  $('generatedTasks').classList.remove('hidden');
+  $('generatedProblem').innerHTML=`<h3>Enunciat generat</h3><p>Una màquina tèrmica treballa entre una font freda a <b>T<sub>c</sub> = ${TcC} °C</b> i una font calenta a <b>T<sub>h</sub> = ${ThC} °C</b>. Absorbeix <b>Q<sub>h</sub> = ${Qh} kJ</b> de la font calenta i cedeix <b>|Q<sub>c</sub>| = ${fmt(Qc,2)} kJ</b> a la font freda.</p><p>${type==='entropy'?'Determina el treball perdut Wp per irreversibilitats, la variació d’entropia de la màquina ΔS i la variació d’entropia de l’Univers ΔSt en cada cicle.':'Determina l’eficiència real η, l’eficiència segons el segon principi ηs i el treball perdut Wp per irreversibilitats.'}</p><p class="small muted">Les fonts es mantenen a temperatura constant i la màquina completa cicles. Dona els resultats amb les unitats indicades.</p>`;
+  $('generatedInputs').innerHTML=tasks.map(t=>`<div class="answer-box" style="margin:12px 0"><div><label for="g-${t.id}">${t.label}</label><input id="g-${t.id}" type="text" inputmode="decimal" placeholder="Introdueix el resultat"></div></div>`).join('');
+  $('generatedFeedback').className='feedback';$('generatedFeedback').textContent='';
+  $('generatedSolution').innerHTML=solution;
+  $('generatedSolution').classList.add('hidden');
+  $('toggleGeneratedSolution').textContent='Mostra la resolució explicada';
+  $('toggleGeneratedSolution').classList.remove('hidden');
+}
+$('generateProblem').addEventListener('click',generateThermalProblem);
+$('checkGenerated').addEventListener('click',()=>{
+  if(!currentGenerated)return;
+  let correct=0,missing=0,details=[];
+  currentGenerated.tasks.forEach(t=>{
+    const raw=$('g-'+t.id).value.trim().replace(',','.');
+    const n=Number(raw);
+    if(raw===''||!Number.isFinite(n)){missing++;details.push(`${t.label}: falta una resposta.`);return;}
+    if(Math.abs(n-t.value)<=t.tol){correct++;details.push(`✓ ${t.label}: correcte.`);}
+    else details.push(`• ${t.label}: revisa el càlcul i les unitats.`);
+  });
+  const f=$('generatedFeedback');f.className='feedback '+(correct===currentGenerated.tasks.length?'ok':'no');
+  f.innerHTML=`<b>${correct} de ${currentGenerated.tasks.length} respostes correctes.</b><br>${details.join('<br>')}`;
+});
+$('toggleGeneratedSolution').addEventListener('click',()=>{
+  const panel=$('generatedSolution');panel.classList.toggle('hidden');
+  $('toggleGeneratedSolution').textContent=panel.classList.contains('hidden')?'Mostra la resolució explicada':'Amaga la resolució';
+});
+
+</script>
+
+<style>
+#carnot-cycle-lab .cycle-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:16px 0}
+#carnot-cycle-lab .cycle-card{border:1px solid var(--line,#d8dee8);border-radius:14px;padding:14px;background:var(--card,#fff)}
+#carnot-cycle-lab .cycle-card h3{margin-top:0}
+#carnot-cycle-lab .cycle-equation{font-family:Georgia,serif;font-size:1.05rem;background:rgba(100,116,139,.09);padding:10px;border-radius:8px;margin:8px 0}
+#carnot-cycle-lab .cycle-output{margin-top:16px}
+#carnot-cycle-lab .cycle-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.95rem}
+#carnot-cycle-lab .cycle-table th,#carnot-cycle-lab .cycle-table td{padding:9px;border-bottom:1px solid var(--line,#d8dee8);text-align:left}
+#carnot-cycle-lab .cycle-table th{background:rgba(100,116,139,.1)}
+#carnot-cycle-lab .cycle-note{border-left:4px solid #d6a23a;padding:10px 12px;background:rgba(214,162,58,.1);border-radius:5px}
+@media(max-width:600px){#carnot-cycle-lab .cycle-table{font-size:.82rem}#carnot-cycle-lab .cycle-table th,#carnot-cycle-lab .cycle-table td{padding:6px}}
+</style>
+<section class="section hidden" id="carnot-cycle-lab">
+  <div class="section-head"><div><h2>🔁 Laboratori del cicle de Carnot</h2><p class="muted small">Genera un cicle reversible complet i estudia les quatre transformacions, els intercanvis d'energia i l'entropia.</p></div><span class="pill">Nou</span></div>
+  <div class="cycle-grid">
+    <div class="cycle-card"><h3>1 · Isoterma calenta (1 → 2)</h3><p>El gas s'expandeix a temperatura constant <b>T<sub>h</sub></b>.</p><div class="cycle-equation">ΔU = 0; Q<sub>h</sub> = W<sub>12</sub> = nRT<sub>h</sub> ln(V₂/V₁)</div><p class="muted small">El gas absorbeix calor i la transforma en treball.</p></div>
+    <div class="cycle-card"><h3>2 · Adiabàtica (2 → 3)</h3><p>El gas s'expandeix sense intercanviar calor.</p><div class="cycle-equation">Q = 0; ΔS = 0</div><p class="muted small">La temperatura baixa de T<sub>h</sub> a T<sub>c</sub>.</p></div>
+    <div class="cycle-card"><h3>3 · Isoterma freda (3 → 4)</h3><p>El gas es comprimeix a temperatura constant <b>T<sub>c</sub></b>.</p><div class="cycle-equation">ΔU = 0; Q<sub>c</sub> = W<sub>34</sub> = nRT<sub>c</sub> ln(V₄/V₃)</div><p class="muted small">Q<sub>c</sub> i W<sub>34</sub> són negatius amb el conveni W fet pel gas.</p></div>
+    <div class="cycle-card"><h3>4 · Adiabàtica (4 → 1)</h3><p>El gas es comprimeix sense intercanviar calor.</p><div class="cycle-equation">Q = 0; ΔS = 0</div><p class="muted small">La temperatura torna a T<sub>h</sub> i es tanca el cicle.</p></div>
+  </div>
+  <div class="cycle-note"><b>Conveni de signes:</b> en aquest laboratori, el treball W és positiu quan el fa el gas, de manera que ΔU = Q − W. Suposem un gas ideal diatòmic i un cicle reversible.</div>
+  <div class="controls" style="display:flex;flex-wrap:wrap;gap:10px;align-items:end;margin:16px 0">
+    <label>Quantitat de gas n (mol)<input id="cy-n" type="number" min="0.1" max="10" step="0.1" value="1" style="display:block;max-width:130px"></label>
+    <label>Temperatura calenta Th (°C)<input id="cy-th" type="number" min="100" max="900" step="10" value="500" style="display:block;max-width:150px"></label>
+    <label>Temperatura freda Tc (°C)<input id="cy-tc" type="number" min="0" max="250" step="10" value="100" style="display:block;max-width:150px"></label>
+    <label>Relació V₂/V₁<input id="cy-r" type="number" min="1.1" max="8" step="0.1" value="2" style="display:block;max-width:130px"></label>
+    <button id="cy-generate" class="primary">🎲 Genera un cicle</button>
+    <button id="cy-solution" class="secondary">Mostra la resolució</button>
+  </div>
+  <p class="muted small">Constants: R = 8,314 J·mol⁻¹·K⁻¹; per al gas diatòmic ideal, Cᵥ = 5R/2. Les adiabàtiques determinen els volums restants perquè el cicle sigui coherent.</p>
+  <div id="cy-problem" class="cycle-card"><h3>Enunciat generat</h3><p>Un mol de gas ideal diatòmic (quantitat n = 1,00 mol) descriu un cicle de Carnot reversible entre una font calenta a 500,0 °C i una font freda a 100,0 °C. Durant l'expansió isotèrmica calenta, el volum passa de V₁ a V₂ = 2,00·V₁. Calcula Qh, Qc, el treball net Wnet, l'eficiència i la variació d'entropia del gas en cada transformació. Fes servir el conveni W fet pel gas positiu.</p><p class="muted small">Pista: en un cicle reversible, l'entropia total del gas torna al valor inicial.</p></div>
+  <div id="cy-result" class="cycle-output"></div>
+</section>
+<script>
+(function(){
+ const $=id=>document.getElementById(id), R=8.314, Cv=2.5*R;
+ let current=null;
+ const f=(x,d=2)=>Number(x).toLocaleString('ca-ES',{minimumFractionDigits:d,maximumFractionDigits:d});
+ function generate(){
+   const n=Number($('cy-n').value), ThC=Number($('cy-th').value), TcC=Number($('cy-tc').value), ratio=Number($('cy-r').value);
+   if(!(n>0&&ThC>TcC&&TcC>-273.15&&ratio>1)){
+     $('cy-problem').innerHTML='<h3>Revisa les dades</h3><p>Cal que n sigui positiva, Th sigui superior a Tc i V₂/V₁ sigui superior a 1.</p>'; $('cy-result').innerHTML=''; return;
+   }
+   const Th=ThC+273.15,Tc=TcC+273.15;
+   const Vratio=ratio, qh=n*R*Th*Math.log(Vratio), qc=-n*R*Tc*Math.log(Vratio);
+   const w12=qh, w23=n*Cv*(Th-Tc), w34=qc, w41=-n*Cv*(Th-Tc);
+   const wnet=w12+w23+w34+w41, eta=wnet/qh, etaC=1-Tc/Th;
+   const dS12=qh/Th,dS34=qc/Tc;
+   current={n,ThC,TcC,Th,Tc,ratio,qh,qc,w12,w23,w34,w41,wnet,eta,etaC,dS12,dS34};
+   $('cy-problem').innerHTML=`<h3>Enunciat generat</h3><p>Un mol de gas ideal diatòmic (quantitat n = ${f(n,2)} mol) descriu un cicle de Carnot reversible entre una font calenta a ${f(ThC,1)} °C i una font freda a ${f(TcC,1)} °C. Durant l'expansió isotèrmica calenta, el volum passa de V₁ a V₂ = ${f(ratio,2)}·V₁. Calcula Qh, Qc, el treball net Wnet, l'eficiència i la variació d'entropia del gas en cada transformació. Fes servir el conveni W fet pel gas positiu.</p><p class="muted small">Pista: en un cicle reversible, l'entropia total del gas torna al valor inicial.</p>`;
+   $('cy-result').innerHTML='';
+ }
+ function solution(){
+   if(!current){generate();if(!current)return;}
+   const x=current, dS23=0,dS41=0;
+   $('cy-result').innerHTML=`<div class="cycle-card"><h3>Resolució guiada</h3>
+   <div class="step"><h3>1. Passem les temperatures a kelvins</h3><div class="cycle-equation">T = θ + 273,15</div><p>Th = ${f(x.Th,2)} K; Tc = ${f(x.Tc,2)} K. Fem servir kelvins perquè les expressions termodinàmiques utilitzen temperatura absoluta.</p></div>
+   <div class="step"><h3>2. Isoterma calenta (1 → 2)</h3><div class="cycle-equation">Qh = W₁₂ = nRTh ln(V₂/V₁)</div><p>Qh = W₁₂ = ${f(x.n)}·8,314·${f(x.Th)}·ln(${f(x.ratio)}) = <b>${f(x.qh/1000)} kJ</b>. Com que la temperatura és constant per a un gas ideal, ΔU₁₂ = 0.</p><p>ΔS₁₂ = Qh/Th = <b>${f(x.dS12)} J/K</b>.</p></div>
+   <div class="step"><h3>3. Adiabàtica (2 → 3)</h3><div class="cycle-equation">Q₂₃ = 0; ΔU₂₃ = nCᵥ(Tc − Th); W₂₃ = −ΔU₂₃</div><p>W₂₃ = nCᵥ(Th − Tc) = <b>${f(x.w23/1000)} kJ</b>. El gas fa treball i la seva temperatura disminueix. En una adiabàtica reversible, ΔS₂₃ = <b>0 J/K</b>.</p></div>
+   <div class="step"><h3>4. Isoterma freda (3 → 4)</h3><div class="cycle-equation">Qc = W₃₄ = nRTc ln(V₄/V₃)</div><p>Com que és una compressió, Qc = <b>${f(x.qc/1000)} kJ</b> i W₃₄ = <b>${f(x.w34/1000)} kJ</b>. ΔU₃₄ = 0.</p><p>ΔS₃₄ = Qc/Tc = <b>${f(x.dS34)} J/K</b>.</p></div>
+   <div class="step"><h3>5. Adiabàtica (4 → 1)</h3><p>W₄₁ = −nCᵥ(Th − Tc) = <b>${f(x.w41/1000)} kJ</b>. En comprimir el gas, el treball fet pel gas és negatiu. ΔS₄₁ = <b>0 J/K</b>.</p></div>
+   <div class="step"><h3>6. Balanç del cicle</h3><table class="cycle-table"><thead><tr><th>Magnitud</th><th>Resultat</th></tr></thead><tbody>
+   <tr><td>Calor absorbida Qh</td><td>${f(x.qh/1000)} kJ</td></tr><tr><td>Calor cedida Qc</td><td>${f(x.qc/1000)} kJ</td></tr><tr><td>Treball net Wnet</td><td>${f(x.wnet/1000)} kJ</td></tr><tr><td>Eficiència η = Wnet/Qh</td><td>${f(x.eta*100)} %</td></tr><tr><td>Eficiència de Carnot ηC = 1 − Tc/Th</td><td>${f(x.etaC*100)} %</td></tr><tr><td>ΔS total del gas en el cicle</td><td>${f(x.dS12+x.dS34)} J/K ≈ 0</td></tr></tbody></table>
+   <p>El treball net és la suma dels treballs de les quatre etapes; les dues contribucions adiabàtiques es cancel·len en aquest model. La variació d'entropia del gas en un cicle complet és zero perquè torna a l'estat inicial. En ser reversible, també és zero la variació d'entropia total de l'univers.</p>
+   <div class="cycle-note"><b>Comprovació conceptual:</b> η = ${f(x.eta*100)} % i ηC = ${f(x.etaC*100)} %. En un cicle de Carnot reversible, aquestes eficiències han de coincidir.</div></div>`;
+ }
+ $('cy-generate').addEventListener('click',generate);
+ $('cy-solution').addEventListener('click',solution);
+ generate();
+})();
+</script>
+
+
+<section class="section" id="pv-diagram-lab">
+  <div class="section-head"><div><h2>📈 Diagrama pressió-volum (p–V)</h2><p class="muted small">Visualitza el cicle de Carnot amb les dades del laboratori. Les corbes s'actualitzen quan generes un cicle nou.</p></div><span class="pill">Interactiu</span></div>
+  <div class="cycle-card">
+    <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:10px">
+      <span><span style="display:inline-block;width:13px;height:4px;background:#d97706;vertical-align:middle;margin-right:5px"></span>Isoterma calenta (1 → 2)</span>
+      <span><span style="display:inline-block;width:13px;height:4px;background:#2563eb;vertical-align:middle;margin-right:5px"></span>Adiabàtica (2 → 3)</span>
+      <span><span style="display:inline-block;width:13px;height:4px;background:#0d9488;vertical-align:middle;margin-right:5px"></span>Isoterma freda (3 → 4)</span>
+      <span><span style="display:inline-block;width:13px;height:4px;background:#9333ea;vertical-align:middle;margin-right:5px"></span>Adiabàtica (4 → 1)</span>
+    </div>
+    <svg id="pv-svg" viewBox="0 0 760 470" role="img" aria-label="Diagrama pressió volum del cicle de Carnot" style="width:100%;height:auto;display:block"><line x1="76" y1="26" x2="732" y2="26" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3 5"></line><text x="66" y="30" text-anchor="end" font-size="12" fill="currentColor">7.263,6</text><line x1="76" y1="102.4" x2="732" y2="102.4" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3 5"></line><text x="66" y="106.4" text-anchor="end" font-size="12" fill="currentColor">5.810,9</text><line x1="76" y1="178.8" x2="732" y2="178.8" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3 5"></line><text x="66" y="182.8" text-anchor="end" font-size="12" fill="currentColor">4.358,2</text><line x1="76" y1="255.2" x2="732" y2="255.2" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3 5"></line><text x="66" y="259.2" text-anchor="end" font-size="12" fill="currentColor">2.905,4</text><line x1="76" y1="331.6" x2="732" y2="331.6" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3 5"></line><text x="66" y="335.6" text-anchor="end" font-size="12" fill="currentColor">1.452,7</text><line x1="76" y1="408" x2="732" y2="408" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3 5"></line><text x="66" y="412" text-anchor="end" font-size="12" fill="currentColor">0</text><line x1="76" y1="26" x2="76" y2="408" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3 5"></line><text x="76" y="430" text-anchor="middle" font-size="12" fill="currentColor">0</text><line x1="207.2" y1="26" x2="207.2" y2="408" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3 5"></line><text x="207.2" y="430" text-anchor="middle" font-size="12" fill="currentColor">2,6</text><line x1="338.4" y1="26" x2="338.4" y2="408" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3 5"></line><text x="338.4" y="430" text-anchor="middle" font-size="12" fill="currentColor">5,2</text><line x1="469.6" y1="26" x2="469.6" y2="408" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3 5"></line><text x="469.6" y="430" text-anchor="middle" font-size="12" fill="currentColor">7,8</text><line x1="600.8" y1="26" x2="600.8" y2="408" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3 5"></line><text x="600.8" y="430" text-anchor="middle" font-size="12" fill="currentColor">10,4</text><line x1="732" y1="26" x2="732" y2="408" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3 5"></line><text x="732" y="430" text-anchor="middle" font-size="12" fill="currentColor">13</text><line x1="76" y1="26" x2="76" y2="408" stroke="currentColor" stroke-width="1.5"></line><line x1="76" y1="408" x2="732" y2="408" stroke="currentColor" stroke-width="1.5"></line><text x="18" y="217" transform="rotate(-90 18 217)" text-anchor="middle" font-size="14" fill="currentColor">Pressió p (kPa)</text><text x="404" y="458" text-anchor="middle" font-size="14" fill="currentColor">Volum V (L; V₁ = 1 L)</text><path d="M126.55 69.95 L127.27 74.71 L128.00 79.34 L128.72 83.84 L129.44 88.22 L130.16 92.48 L130.88 96.64 L131.61 100.68 L132.33 104.62 L133.05 108.46 L133.77 112.20 L134.50 115.86 L135.22 119.42 L135.94 122.89 L136.66 126.29 L137.38 129.60 L138.11 132.84 L138.83 136.00 L139.55 139.09 L140.27 142.12 L140.99 145.07 L141.72 147.96 L142.44 150.79 L143.16 153.55 L143.88 156.26 L144.61 158.91 L145.33 161.50 L146.05 164.04 L146.77 166.53 L147.49 168.97 L148.22 171.36 L148.94 173.71 L149.66 176.00 L150.38 178.26 L151.11 180.46 L151.83 182.63 L152.55 184.76 L153.27 186.84 L153.99 188.89 L154.72 190.90 L155.44 192.88 L156.16 194.81 L156.88 196.72 L157.60 198.59 L158.33 200.42 L159.05 202.23 L159.77 204.00 L160.49 205.75 L161.22 207.46 L161.94 209.15 L162.66 210.80 L163.38 212.43 L164.10 214.04 L164.83 215.61 L165.55 217.16 L166.27 218.69 L166.99 220.19 L167.71 221.67 L168.44 223.13 L169.16 224.56 L169.88 225.97 L170.60 227.36 L171.33 228.73 L172.05 230.08 L172.77 231.41 L173.49 232.71 L174.21 234.00 L174.94 235.27 L175.66 236.52 L176.38 237.76 L177.10 238.97" fill="none" stroke="#d97706" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path><path d="M177.10 238.97 L184.58 255.05 L192.06 268.67 L199.55 280.34 L207.03 290.42 L214.51 299.22 L221.99 306.94 L229.47 313.77 L236.95 319.84 L244.43 325.28 L251.91 330.16 L259.39 334.57 L266.87 338.56 L274.35 342.20 L281.83 345.53 L289.32 348.57 L296.80 351.37 L304.28 353.95 L311.76 356.34 L319.24 358.55 L326.72 360.60 L334.20 362.51 L341.68 364.30 L349.16 365.96 L356.64 367.52 L364.12 368.99 L371.60 370.36 L379.09 371.66 L386.57 372.88 L394.05 374.03 L401.53 375.11 L409.01 376.14 L416.49 377.12 L423.97 378.05 L431.45 378.92 L438.93 379.76 L446.41 380.56 L453.89 381.31 L461.37 382.04 L468.86 382.72 L476.34 383.38 L483.82 384.01 L491.30 384.62 L498.78 385.19 L506.26 385.75 L513.74 386.28 L521.22 386.79 L528.70 387.28 L536.18 387.75 L543.66 388.20 L551.15 388.63 L558.63 389.05 L566.11 389.46 L573.59 389.84 L581.07 390.22 L588.55 390.58 L596.03 390.93 L603.51 391.27 L610.99 391.60 L618.47 391.91 L625.95 392.22 L633.43 392.51 L640.92 392.80 L648.40 393.08 L655.88 393.35 L663.36 393.61 L670.84 393.86 L678.32 394.10 L685.80 394.34 L693.28 394.57 L700.76 394.80" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path><path d="M700.76 394.80 L696.30 394.70 L691.84 394.61 L687.37 394.51 L682.91 394.41 L678.45 394.31 L673.99 394.21 L669.52 394.10 L665.06 394.00 L660.60 393.89 L656.14 393.78 L651.67 393.67 L647.21 393.56 L642.75 393.45 L638.29 393.33 L633.82 393.21 L629.36 393.10 L624.90 392.97 L620.44 392.85 L615.97 392.73 L611.51 392.60 L607.05 392.47 L602.59 392.34 L598.12 392.20 L593.66 392.07 L589.20 391.93 L584.73 391.79 L580.27 391.64 L575.81 391.50 L571.35 391.35 L566.88 391.20 L562.42 391.04 L557.96 390.89 L553.50 390.73 L549.03 390.56 L544.57 390.40 L540.11 390.23 L535.65 390.06 L531.18 389.88 L526.72 389.70 L522.26 389.52 L517.80 389.33 L513.33 389.14 L508.87 388.95 L504.41 388.75 L499.95 388.55 L495.48 388.34 L491.02 388.13 L486.56 387.91 L482.10 387.69 L477.63 387.46 L473.17 387.23 L468.71 387.00 L464.24 386.76 L459.78 386.51 L455.32 386.26 L450.86 386.00 L446.39 385.73 L441.93 385.46 L437.47 385.18 L433.01 384.90 L428.54 384.60 L424.08 384.30 L419.62 384.00 L415.16 383.68 L410.69 383.36 L406.23 383.02 L401.77 382.68 L397.31 382.33 L392.84 381.97 L388.38 381.60" fill="none" stroke="#0d9488" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path><path d="M388.38 381.60 L384.64 381.15 L380.90 380.69 L377.16 380.21 L373.42 379.72 L369.68 379.21 L365.94 378.69 L362.20 378.15 L358.46 377.60 L354.72 377.03 L350.98 376.44 L347.24 375.82 L343.50 375.19 L339.76 374.54 L336.02 373.86 L332.27 373.16 L328.53 372.44 L324.79 371.69 L321.05 370.91 L317.31 370.10 L313.57 369.27 L309.83 368.40 L306.09 367.49 L302.35 366.55 L298.61 365.57 L294.87 364.55 L291.13 363.49 L287.39 362.39 L283.65 361.23 L279.91 360.03 L276.17 358.77 L272.43 357.45 L268.69 356.07 L264.95 354.63 L261.21 353.11 L257.47 351.52 L253.73 349.85 L249.99 348.09 L246.24 346.24 L242.50 344.29 L238.76 342.23 L235.02 340.05 L231.28 337.75 L227.54 335.31 L223.80 332.72 L220.06 329.97 L216.32 327.05 L212.58 323.93 L208.84 320.59 L205.10 317.03 L201.36 313.20 L197.62 309.10 L193.88 304.68 L190.14 299.90 L186.40 294.74 L182.66 289.14 L178.92 283.05 L175.18 276.41 L171.44 269.13 L167.70 261.13 L163.96 252.32 L160.22 242.55 L156.47 231.69 L152.73 219.54 L148.99 205.88 L145.25 190.43 L141.51 172.85 L137.77 152.67 L134.03 129.34 L130.29 102.10 L126.55 69.95" fill="none" stroke="#9333ea" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="126.55146649639136" cy="69.94690265486719" r="5" fill="#fff" stroke="#111827" stroke-width="2"></circle><text x="135.55146649639136" y="59.94690265486719" font-size="15" font-weight="700" fill="currentColor">1</text><circle cx="177.1029329927827" cy="238.9734513274336" r="5" fill="#fff" stroke="#111827" stroke-width="2"></circle><text x="186.1029329927827" y="227.9734513274336" font-size="15" font-weight="700" fill="currentColor">2</text><circle cx="700.7619047619047" cy="394.7984834701487" r="5" fill="#fff" stroke="#111827" stroke-width="2"></circle><text x="684.7619047619047" y="384.7984834701487" font-size="15" font-weight="700" fill="currentColor">3</text><circle cx="388.38095238095235" cy="381.5969669402974" r="5" fill="#fff" stroke="#111827" stroke-width="2"></circle><text x="397.38095238095235" y="398.5969669402974" font-size="15" font-weight="700" fill="currentColor">4</text></svg>
+    <p id="pv-caption" class="muted small">Model de gas ideal diatòmic (γ = 1.4); n = 1 mol; Th = 500 °C; Tc = 100 °C. Els volums es mostren en relació amb V₁ = 1 L i les pressions es calculen amb pV = nRT.</p>
+  </div>
+  <div class="cycle-grid">
+    <div class="cycle-card"><h3>Com llegir-lo</h3><p>L'eix horitzontal representa el volum V i el vertical la pressió p. El recorregut 1 → 2 → 3 → 4 → 1 és horari: el gas s'expandeix a la part superior i es comprimeix a la part inferior.</p></div>
+    <div class="cycle-card"><h3>Què canvia?</h3><p>Augmentar la relació V₂/V₁ allarga les isotermes. Augmentar la diferència entre Th i Tc separa més les dues temperatures i modifica l'amplada del tram adiabàtic.</p></div>
+  </div>
+</section>
+<script>
+(function(){
+ const $=id=>document.getElementById(id);
+ const NS='http://www.w3.org/2000/svg';
+ const gamma=1.4;
+ function el(tag,attrs={},parent){const e=document.createElementNS(NS,tag);Object.entries(attrs).forEach(([k,v])=>e.setAttribute(k,String(v)));if(parent)parent.appendChild(e);return e;}
+ function draw(){
+   const n=Number($('cy-n').value), Th=Number($('cy-th').value)+273.15, Tc=Number($('cy-tc').value)+273.15, r=Number($('cy-r').value);
+   const svg=$('pv-svg'); svg.innerHTML='';
+   if(!(n>0&&Th>Tc&&Tc>0&&r>1)){ $('pv-caption').textContent='Revisa les dades: cal Th > Tc, temperatures positives en kelvins i V₂/V₁ > 1.';return;}
+   // V1 is set to 1 litre for plotting; pressure is calculated from the ideal-gas law.
+   const V1=1, V2=r, factor=Math.pow(Th/Tc,1/(gamma-1)), V3=V2*factor, V4=V1*factor;
+   const p=(T,V)=>n*8.314*T/(V/1000);
+   const p1=p(Th,V1),p2=p(Th,V2),p3=p(Tc,V3),p4=p(Tc,V4);
+   const left=76,right=28,top=26,bottom=62,W=760,H=470, pw=W-left-right,ph=H-top-bottom;
+   const xmax=V3*1.05, ymax=Math.max(p1,p2,p3,p4)*1.13;
+   const X=v=>left+v/xmax*pw, Y=q=>top+ph-q/ymax*ph;
+   // light grid and axes
+   for(let i=0;i<=5;i++){
+     const y=top+ph*i/5;
+     el('line',{x1:left,y1:y,x2:W-right,y2:y,stroke:'#cbd5e1','stroke-width':1,'stroke-dasharray':'3 5'},svg);
+     const val=ymax*(1-i/5)/1000;
+     const t=el('text',{x:left-10,y:y+4,'text-anchor':'end','font-size':12,fill:'currentColor'},svg);t.textContent=val.toLocaleString('ca-ES',{maximumFractionDigits:1});
+   }
+   for(let i=0;i<=5;i++){
+     const x=left+pw*i/5;
+     el('line',{x1:x,y1:top,x2:x,y2:top+ph,stroke:'#cbd5e1','stroke-width':1,'stroke-dasharray':'3 5'},svg);
+     const val=xmax*i/5;
+     const t=el('text',{x:x,y:top+ph+22,'text-anchor':'middle','font-size':12,fill:'currentColor'},svg);t.textContent=val.toLocaleString('ca-ES',{maximumFractionDigits:1});
+   }
+   el('line',{x1:left,y1:top,x2:left,y2:top+ph,stroke:'currentColor','stroke-width':1.5},svg);
+   el('line',{x1:left,y1:top+ph,x2:W-right,y2:top+ph,stroke:'currentColor','stroke-width':1.5},svg);
+   const yl=el('text',{x:18,y:top+ph/2,transform:`rotate(-90 18 ${top+ph/2})`,'text-anchor':'middle','font-size':14,fill:'currentColor'},svg);yl.textContent='Pressió p (kPa)';
+   const xl=el('text',{x:left+pw/2,y:H-12,'text-anchor':'middle','font-size':14,fill:'currentColor'},svg);xl.textContent='Volum V (L; V₁ = 1 L)';
+   function curve(vStart,vEnd,fn,color){
+     let d='';
+     const steps=70;
+     for(let i=0;i<=steps;i++){const v=vStart+(vEnd-vStart)*i/steps;d+=(i?' L':'M')+X(v).toFixed(2)+' '+Y(fn(v)).toFixed(2);}
+     el('path',{d,fill:'none',stroke:color,'stroke-width':3,'stroke-linecap':'round','stroke-linejoin':'round'},svg);
+   }
+   curve(V1,V2,v=>p(Th,v),'#d97706');
+   curve(V2,V3,v=>p2*Math.pow(V2/v,gamma),'#2563eb');
+   curve(V3,V4,v=>p(Tc,v),'#0d9488');
+   curve(V4,V1,v=>p4*Math.pow(V4/v,gamma),'#9333ea');
+   const points=[[V1,p1,'1'],[V2,p2,'2'],[V3,p3,'3'],[V4,p4,'4']];
+   points.forEach(([v,pr,label])=>{
+     el('circle',{cx:X(v),cy:Y(pr),r:5,fill:'#fff',stroke:'#111827','stroke-width':2},svg);
+     const dx=label==='3'?-16:9,dy=label==='2'?-11:(label==='4'?17:-10);
+     const t=el('text',{x:X(v)+dx,y:Y(pr)+dy,'font-size':15,'font-weight':700,fill:'currentColor'},svg);t.textContent=label;
+   });
+   $('pv-caption').textContent=`Model de gas ideal diatòmic (γ = ${gamma}); n = ${n} mol; Th = ${Math.round(Th-273.15)} °C; Tc = ${Math.round(Tc-273.15)} °C. Els volums es mostren en relació amb V₁ = 1 L i les pressions es calculen amb pV = nRT.`;
+ }
+ ['cy-generate','cy-solution','cy-n','cy-th','cy-tc','cy-r'].forEach(id=>{const e=$(id);if(e)e.addEventListener(id.startsWith('cy-')&&['cy-n','cy-th','cy-tc','cy-r'].includes(id)?'input':'click',draw);});
+ draw();
+})();
+</script>
+
+
+<style>
+#carnot-problem-library .problem-library-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:16px 0}
+#carnot-problem-library .lib-card{border:1px solid var(--line,#d8dee8);border-radius:14px;padding:16px;background:var(--card,#fff);display:flex;flex-direction:column;gap:10px}
+#carnot-problem-library .lib-card h3{margin:0}
+#carnot-problem-library .lib-card .lib-topic{font-size:.82rem;opacity:.8}
+#carnot-problem-library .lib-solution{padding-top:12px;border-top:1px solid var(--line,#d8dee8);line-height:1.55}
+#carnot-problem-library .lib-solution[hidden]{display:none}
+#carnot-problem-library button{cursor:pointer}
+#carnot-problem-library .lib-caution{border-left:4px solid #d6a23a;padding:10px 12px;background:rgba(214,162,58,.1);border-radius:5px}
+</style>
+<section class="section" id="carnot-problem-library">
+  <div class="section-head"><div><h2>📚 Biblioteca de problemes validats</h2><p class="muted small">Problemes 3–7 del dossier, amb resolució guiada i punts de comprovació.</p></div><span class="pill">5 problemes</span></div>
+  <p>Tria un problema i obri la resolució quan vulgues. Els resultats numèrics es calculen amb les dades de l'enunciat; en els casos amb hipòtesis addicionals, aquestes s'indiquen explícitament.</p>
+  <div class="problem-library-grid">
+    <article class="lib-card">
+      <div class="lib-topic">MÀQUINES TÈRMIQUES · CARNOT</div><h3>Problema 3 · Motor tèrmic ideal</h3>
+      <p>Un motor tèrmic ideal treballa entre dos focus, l’un a Th = 2 700 ºC i l’altre a Tc = 1 200 ºC. Si rep Qh = 500 kJ per cicle, calcula el treball i la calor cedida.</p>
+      <button type="button" class="primary lib-toggle" data-target="lib-sol-3">Mostra la resolució</button>
+      <div class="lib-solution" id="lib-sol-3" hidden="">
+        <p><b>1. Temperatures absolutes:</b> Th = 2973,15 K; Tc = 1473,15 K.</p>
+        <p><b>2. Rendiment màxim de Carnot:</b> η = 1 − Tc/Th = 0,5046 ≈ <b>50,46 %</b>.</p>
+        <p><b>3. Treball:</b> η = W/Qh, per tant W = ηQh = 0,5046·500 ≈ <b>252,3 kJ</b>.</p>
+        <p><b>4. Calor cedida:</b> Qh = W + |Qc|; |Qc| = 500 − 252,3 ≈ <b>247,7 kJ</b>.</p>
+        <p><b>Comprovació:</b> el treball més la calor cedida sumen la calor absorbida, dins de l'arrodoniment.</p>
+      </div>
+    </article>
+    <article class="lib-card">
+      <div class="lib-topic">SEGON PRINCIPI · VALIDACIÓ</div><h3>Problema 4 · És possible aquesta màquina?</h3>
+      <p>Una màquina entre Tc = 20 ºC i Th = 100 ºC absorbeix Qh = 300 J i produeix W = 150 J. Decideix si és possible.</p>
+      <button type="button" class="primary lib-toggle" data-target="lib-sol-4">Mostra la resolució</button>
+      <div class="lib-solution" id="lib-sol-4" hidden="">
+        <p><b>1. Rendiment proposat:</b> η = W/Qh = 150/300 = <b>50 %</b>.</p>
+        <p><b>2. Kelvin:</b> Th = 373,15 K; Tc = 293,15 K.</p>
+        <p><b>3. Límit de Carnot:</b> ηC = 1 − Tc/Th = 1 − 293,15/373,15 ≈ <b>21,44 %</b>.</p>
+        <p><b>Conclusió:</b> no és possible si la màquina funciona cíclicament entre aquests dos focus, perquè η &gt; ηC. Això violaria el segon principi de la termodinàmica.</p>
+      </div>
+    </article>
+    <article class="lib-card">
+      <div class="lib-topic">SISTEMES OBERTS · COMPRESSORS</div><h3>Problema 5 · Potència del compressor</h3>
+      <p>El cabal d'aire és de 72 kg/h, H1 = 280,31 kJ/kg, H2 = 400,98 kJ/kg i les pèrdues són de 500 W. Calcula la potència requerida.</p>
+      <button type="button" class="primary lib-toggle" data-target="lib-sol-5">Mostra la resolució</button>
+      <div class="lib-solution" id="lib-sol-5" hidden="">
+        <p><b>1. Cabal màssic:</b> ṁ = 72/3600 = <b>0,020 kg/s</b>.</p>
+        <p><b>2. Increment d'entalpia:</b> Δh = H2 − H1 = 400,98 − 280,31 = <b>120,67 kJ/kg</b>.</p>
+        <p><b>3. Potència transferida al corrent d'aire:</b> ṁΔh = 0,020·120,67 kJ/s = <b>2,4134 kW</b>.</p>
+        <p><b>4. Afegim les pèrdues:</b> Pentrada = 2,4134 + 0,500 = <b>2,9134 kW ≈ 2,91 kW</b>.</p>
+        <div class="lib-caution"><b>Hipòtesi:</b> s'han interpretat els 500 W com a potència addicional que cal aportar. Suposem canvis negligibles d'energia cinètica i potencial i que no hi ha altres termes rellevants en el balanç d'energia.</div>
+      </div>
+    </article>
+    <article class="lib-card">
+      <div class="lib-topic">REFRIGERACIÓ · CANVIS D'ESTAT</div><h3>Problema 6 · Producció de gel</h3>
+      <p>Un refrigerador de COP = 3 produeix 100 kg de gel a 0 °C cada hora a partir d'aigua a 17 °C. ce = 4,18 kJ/(kg·°C), Lf = 333,5 kJ/kg. Calcula la calor extreta i la potència consumida.</p>
+      <button type="button" class="primary lib-toggle" data-target="lib-sol-6">Mostra la resolució</button>
+      <div class="lib-solution" id="lib-sol-6" hidden="">
+        <p><b>1. Refredar l'aigua fins a 0 °C:</b> q1 = ceΔT = 4,18·17 = <b>71,06 kJ/kg</b>.</p>
+        <p><b>2. Congelar-la:</b> q2 = Lf = <b>333,5 kJ/kg</b>.</p>
+        <p><b>3. Calor extreta per quilogram:</b> q = q1 + q2 = <b>404,56 kJ/kg</b>.</p>
+        <p><b>4. Per a 100 kg/h:</b> Q̇c = 404,56·100 = 40 456 kJ/h = <b>11,24 kW</b>.</p>
+        <p><b>5. Potència elèctrica:</b> COP = Q̇c/P, així que P = 11,24/3 ≈ <b>3,75 kW</b>.</p>
+        <div class="lib-caution"><b>Hipòtesi:</b> el gel final és a 0 °C; no es considera refredament posterior del gel ni pèrdues tèrmiques externes.</div>
+      </div>
+    </article>
+    <article class="lib-card">
+      <div class="lib-topic">CICLE DE CARNOT · COMBUSTIBLE</div><h3>Problema 7 · Consum per cicle</h3>
+      <p>Un motor de Carnot produeix Wnet = 1500 J per cicle entre T1 = 450 °C i T2 = 20 °C. El combustible té poder calorífic p = 48,8 MJ/kg. Calcula η, Q1, Q2 i el consum per cicle.</p>
+      <button type="button" class="primary lib-toggle" data-target="lib-sol-7">Mostra la resolució</button>
+      <div class="lib-solution" id="lib-sol-7" hidden="">
+        <p><b>1. Temperatures:</b> T1 = 723,15 K; T2 = 293,15 K.</p>
+        <p><b>2. Rendiment de Carnot:</b> η = 1 − T2/T1 ≈ <b>0,5945 = 59,45 %</b>.</p>
+        <p><b>3. Calor absorbida:</b> η = W/Q1, de manera que Q1 = W/η = 1500/0,5945 ≈ <b>2523 J</b>.</p>
+        <p><b>4. Calor cedida:</b> |Q2| = Q1 − W ≈ <b>1023 J</b>.</p>
+        <p><b>5. Consum de combustible:</b> p = 48,8 MJ/kg = 48 800 000 J/kg. Si tota l'energia química alliberada s'aprofita com a calor absorbida, c = Q1/p ≈ 5,17·10⁻⁵ kg = <b>0,0517 g per cicle</b>.</p>
+        <div class="lib-caution"><b>Hipòtesi:</b> el combustible cedeix al focus calent tota l'energia indicada pel seu poder calorífic; no s'hi afegeixen pèrdues de combustió.</div>
+      </div>
+    </article>
+  </div>
+  <p class="muted small">Nota docent: aquests resultats són valors de referència arrodonits. En qualsevol variant generada, CarnotLab ha de recalcular els resultats amb les dades concretes, no reutilitzar aquests valors fixos.</p>
+</section>
+<script>
+(function(){
+ document.querySelectorAll('#carnot-problem-library .lib-toggle').forEach(btn=>{
+   btn.addEventListener('click',()=>{
+     const panel=document.getElementById(btn.getAttribute('data-target'));
+     const opening=panel.hidden;
+     panel.hidden=!opening;
+     btn.textContent=opening?'Amaga la resolució':'Mostra la resolució';
+   });
+ });
+})();
+</script>
+
+
+<script>globalThis.__codexVisualizationInitialGlobals={"statePersistence":"none","stateModelContext":"none","visualizationStyleVariables":{"--accent":"rgb(19, 52, 99)","--accent-foreground":"rgb(44, 103, 197)","--background":"rgb(0, 0, 0)","--border":"rgba(255, 255, 255, 0.15)","--border-strong":"rgba(255, 255, 255, 0.2)","--card":"color-mix(in oklab, rgb(237, 237, 237) 5%, transparent)","--card-foreground":"rgb(237, 237, 237)","--corner-shape":"round","--control-spacing":"12px","--cursor-interaction":"pointer","--destructive":"rgb(255, 133, 73)","--font-mono":"ui-monospace, SFMono-Regular, \"SF Mono\", menlo, consolas, \"Liberation Mono\", monospace","--font-sans":"-apple-system-body, ui-sans-serif, -apple-system, system-ui, \"Segoe UI\", Helvetica, \"Apple Color Emoji\", Arial, sans-serif, \"Segoe UI Emoji\", \"Segoe UI Symbol\"","--font-size-base":"16px","--font-weight-normal":"400","--foreground":"rgb(237, 237, 237)","--input":"rgba(255, 255, 255, 0.2)","--muted":"color-mix(in srgb, rgb(237, 237, 237) 10%, transparent)","--muted-foreground":"rgb(175, 175, 175)","--popover":"rgb(48, 48, 48)","--popover-foreground":"rgb(237, 237, 237)","--primary":"rgb(44, 103, 197)","--primary-foreground":"rgb(13, 13, 13)","--radius":"8px","--radius-2xl":"16px","--radius-lg":"8px","--radius-md":"6px","--radius-sm":"4px","--ring":"rgb(58, 131, 247)","--secondary":"rgb(48, 48, 48)","--secondary-foreground":"rgb(237, 237, 237)","--blue":"rgb(58, 131, 247)","--orange":"rgb(251, 106, 34)","--green":"rgb(64, 201, 119)","--red":"rgb(255, 103, 100)","--purple":"rgb(173, 123, 249)","--yellow":"rgb(255, 210, 64)","--visualize-paint-gutter":"0px","--viz-series-1":"rgb(44, 103, 197)","--viz-series-2":"#f6d459","--viz-series-3":"#f28ec0","--viz-series-4":"#54ccc2","--viz-series-5":"#71d689","--viz-series-6":"#f79951"},"visualizationTheme":"dark"};</script>
+<style id="codex-visualization-host-theme">:root {}</style>
+<script>
+(() => {
+  // Host colors are defaults; later authored styles can give the same names
+  // their own meaning (for example, --muted as a chart's label color).
+  const hostStyles = document.getElementById("codex-visualization-host-theme");
+  const hostStyle = hostStyles.sheet.cssRules[0].style;
+  // Typography, geometry and interaction cursors still follow the host.
+  const styleForProperty = (property) =>
+    /^--(?:font-|radius|corner-shape$|control-spacing$|cursor-interaction$|icon-size$|visualize-paint-gutter$)/.test(property)
+      ? document.documentElement.style
+      : hostStyle;
+  const initialGlobals =
+    globalThis.__codexVisualizationInitialGlobals ?? globalThis.openai;
+  delete globalThis.__codexVisualizationInitialGlobals;
+  if (initialGlobals?.statePersistence != null) {
+    globalThis.openai ??= {};
+    globalThis.openai.statePersistence = initialGlobals.statePersistence;
+    globalThis.openai.stateModelContext = initialGlobals.stateModelContext ?? "none";
+  }
+  if (!false) {
+    return;
+  }
+  let appliedProperties = [];
+  const applyHostStyleVariables = (styleVariables) => {
+    if (styleVariables == null || typeof styleVariables !== "object") {
+      return;
+    }
+    for (const property of appliedProperties) {
+      styleForProperty(property).removeProperty(property);
+    }
+    appliedProperties = [];
+    for (const [property, value] of Object.entries(styleVariables)) {
+      if (property.startsWith("--") && typeof value === "string") {
+        styleForProperty(property).setProperty(property, value);
+        appliedProperties.push(property);
+      }
+    }
+  };
+
+  const syncHostStyles = (globals) => {
+    applyHostStyleVariables(globals?.visualizationStyleVariables);
+    const sandboxDocument = globalThis.frameElement?.ownerDocument;
+    if (sandboxDocument != null && globals?.visualizationTheme != null) {
+      let colorSchemeMeta = sandboxDocument.querySelector(
+        'meta[name="color-scheme"]',
+      );
+      if (colorSchemeMeta == null) {
+        colorSchemeMeta = sandboxDocument.createElement("meta");
+        colorSchemeMeta.name = "color-scheme";
+        sandboxDocument.head.appendChild(colorSchemeMeta);
+      }
+      colorSchemeMeta.content = globals.visualizationTheme;
+      sandboxDocument.documentElement.style.colorScheme =
+        globals.visualizationTheme;
+      // Paint the host surface behind transparent saved visualization documents.
+      sandboxDocument.documentElement.style.backgroundColor =
+        hostStyle.getPropertyValue("--background");
+    }
+  };
+
+  syncHostStyles(initialGlobals);
+  globalThis.addEventListener("openai:set_globals", (event) => {
+    syncHostStyles(event.detail?.globals);
+  });
+})();
+</script>
+<script>
+(() => {
+  const reportEnvironmentError = (value) => {
+    const error = value instanceof Error ? value : new Error(String(value));
+    void globalThis.openai
+      .callTool(
+        "__codex_inline_visualization_error__",
+        {
+          message: error.message,
+          name: error.name,
+          stack: error.stack,
+        },
+      )
+      .catch(() => {});
+  };
+
+  globalThis.addEventListener("error", (event) => {
+    if (event.target?.localName === "script") {
+      // A script's own onerror may render a fallback or load an alternative.
+      // Let that handler run; failures it throws still reach the global error path.
+      const handlesError = typeof event.target.onerror === "function";
+      globalThis.queueMicrotask(() => {
+        if (!handlesError && !event.defaultPrevented) {
+          reportEnvironmentError("Visualization script could not be loaded");
+        }
+      });
+    } else if (event.target === globalThis) {
+      reportEnvironmentError(event.error ?? event.message);
+    }
+  }, true);
+  globalThis.addEventListener("unhandledrejection", (event) => {
+    reportEnvironmentError(event.reason);
+  });
+})();
+</script>
+<script id="codex-visualization-variants">
+(() => {
+  let previousSnapshot = "[]";
+  let roots = [];
+  const report = () => {
+    roots = Array.from(
+      document.querySelectorAll(".viz-carousel[data-active-variant]"),
+    ).slice(0, 32);
+    const selectedVariants = roots.flatMap((root, carousel) => {
+      const variant = root.dataset.activeVariant;
+      const label = root.getAttribute("aria-label")?.slice(0, 256);
+      return variant ? [{
+        carousel,
+        ...(label == null ? {} : { label }),
+        variant: variant.slice(0, 256),
+      }] : [];
+    });
+    const snapshot = JSON.stringify(selectedVariants);
+    if (snapshot !== previousSnapshot) {
+      previousSnapshot = snapshot;
+      void globalThis.openai.callTool("__codex_visualization_annotations__", {
+        type: "variants",
+        selectedVariants,
+      }).catch(() => {});
+    }
+  };
+  const observer = new MutationObserver((records) => {
+    if (records.some((record) => record.type === "attributes") || roots.some((root) => !root.isConnected)) {
+      report();
+    }
+  });
+  observer.observe(document, {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    attributeFilter: ["data-active-variant"],
+  });
+  report();
+  globalThis.addEventListener("pagehide", () => observer.disconnect(), { once: true });
+})();
+</script>
+<script>
+(() => {
+  let isHovering = false;
+  let isTouch = false;
+  const reportHover = (nextIsHovering, nextIsTouch = false) => {
+    if (nextIsHovering === isHovering && nextIsTouch === isTouch) {
+      return;
+    }
+    isHovering = nextIsHovering;
+    isTouch = nextIsTouch;
+    void globalThis.openai
+      .callTool(
+        "__codex_inline_visualization_hover__",
+        isTouch ? { isHovering, pointerType: "touch" } : { isHovering },
+      )
+      .catch(() => {});
+  };
+
+  globalThis.addEventListener(
+    "pointerover",
+    (event) =>
+      reportHover(event.pointerType !== "touch", event.pointerType === "touch"),
+    { capture: true },
+  );
+  globalThis.addEventListener(
+    "pointerout",
+    (event) => {
+      if (event.pointerType !== "touch" && event.relatedTarget == null) {
+        reportHover(false);
+      }
+    },
+    { capture: true },
+  );
+})();
+</script>
+<script>
+(() => {
+  const report = (method) => {
+    void globalThis.openai.callTool("__codex_inline_visualization_input__", { method }).catch(() => {});
+  };
+  globalThis.addEventListener("pointerdown", () => report("pointer"), { capture: true });
+  globalThis.addEventListener("keydown", (event) => {
+    if (!event.isComposing && event.key !== "Shift" && !event.altKey && !event.ctrlKey && !event.metaKey) {
+      report(["Tab","ArrowLeft","ArrowRight","ArrowUp","ArrowDown"].includes(event.key) ? "keyboard-navigation" : "keyboard");
+    }
+  }, { capture: true });
+})();
+</script>
+<script>
+(() => {
+  const bubbledClicks = new WeakSet();
+  const interactiveSelector = [
+    "button", "input", "select", "textarea", "label", "summary", "a[href]",
+    "audio[controls]", "video[controls]", "[onclick]", "[data-visualization-interactive]",
+    '[contenteditable]:not([contenteditable="false"])',
+    ...[
+      "button", "checkbox", "combobox", "gridcell", "link", "listbox",
+      "menuitem", "menuitemcheckbox", "menuitemradio", "option", "radio",
+      "scrollbar", "searchbox", "slider", "spinbutton", "switch", "tab",
+      "textbox", "treeitem",
+    ].map((role) => '[role~="' + role + '"]'),
+  ].join(",");
+
+  globalThis.addEventListener("click", (event) => bubbledClicks.add(event));
+  globalThis.addEventListener("click", (event) => {
+    // Capture the path before a control can remove itself. Custom delegated
+    // controls can opt in with data-visualization-interactive.
+    const elements = event.composedPath().filter((target) => target instanceof Element);
+    const isInteractiveTarget = elements.some((element) =>
+      element.matches(interactiveSelector) ||
+      (element.hasAttribute("tabindex") && element.tabIndex >= 0)) ||
+      (elements[0] != null && getComputedStyle(elements[0]).cursor === "pointer");
+    // Use a task, not a microtask: native dispatch can run microtasks between
+    // listeners. Propagation flags are reset when dispatch finishes:
+    // https://dom.spec.whatwg.org/#concept-event-dispatch
+    globalThis.setTimeout(() => {
+      void globalThis.openai.callTool("__codex_inline_visualization_click__", {
+        isInteractive: isInteractiveTarget || event.defaultPrevented ||
+          (event.bubbles && !bubbledClicks.has(event)),
+      }).catch(() => {});
+    }, 0);
+  }, { capture: true });
+})();
+</script>
+<script>
+(() => {
+  globalThis.addEventListener("keydown", (event) => {
+    if (event.isComposing || event.altKey || event.ctrlKey || event.metaKey ||
+      event.shiftKey || !["ArrowLeft", "ArrowRight", "Escape"].includes(event.key)) {
+      return;
+    }
+    const target = event.composedPath().find((element) => element instanceof HTMLElement);
+    const editable = target?.closest("[contenteditable]");
+    const editing = target && (target.isContentEditable ||
+      (editable && editable.getAttribute("contenteditable") !== "false") ||
+      target.closest('input, textarea, select, [role="slider"], [role="spinbutton"], [role="combobox"], [role="listbox"], [role="grid"], [role="tree"], [role="tablist"], [role="menu"]'));
+    if (event.key !== "Escape" && editing) { return; }
+    // Let the widget handle the key before forwarding it across the sandbox.
+    globalThis.setTimeout(() => {
+      if (!event.defaultPrevented && globalThis.openai?.displayMode === "fullscreen") {
+        void globalThis.openai.callTool("__codex_inline_visualization_preview_key__", {
+          key: event.key,
+        }).catch(() => {});
+      }
+    }, 0);
+  });
+})();
+</script>
+
+
+
+
+<script>
+(() => {
+  const contentRange = document.createRange();
+  let previousMeasurement = null;
+  let heightReportTimer = null;
+  const reportHeight = () => {
+    const bodyChildren = Array.from(document.body.children).filter(
+      (element) =>
+        element.tagName !== "SCRIPT" &&
+        element.tagName !== "STYLE" &&
+        element.getAttribute("role") !== "tooltip",
+    );
+    const bodyStyle = globalThis.getComputedStyle(document.body);
+    const contentWidth = Math.max(
+      0,
+      Math.round(
+        globalThis.innerWidth -
+          parseFloat(bodyStyle.paddingLeft) -
+          parseFloat(bodyStyle.paddingRight),
+      ),
+    );
+    let contentHeight;
+    if (bodyChildren.length === 0) {
+      contentRange.selectNodeContents(document.body);
+      contentHeight = contentRange.getBoundingClientRect().height;
+    } else if (bodyChildren.length === 1) {
+      const [bodyChild] = bodyChildren;
+      const childRect = bodyChild.getBoundingClientRect();
+      // Child margins can collapse above the root without adding to its height.
+      // The host adds body padding separately.
+      contentHeight =
+        Math.max(bodyChild.scrollHeight, childRect.height) +
+        Math.max(
+          0,
+          childRect.top -
+            document.body.getBoundingClientRect().top -
+            parseFloat(bodyStyle.paddingTop),
+        );
+    } else {
+      const bodyTop = document.body.getBoundingClientRect().top;
+      contentHeight = Math.max(
+        ...bodyChildren.map(
+          (bodyChild) => bodyChild.getBoundingClientRect().bottom - bodyTop,
+        ),
+      );
+    }
+    const viewportHeight = globalThis.innerHeight;
+    const previous = previousMeasurement;
+    previousMeasurement = { contentHeight, contentWidth, viewportHeight };
+    if (
+      previous != null &&
+      contentWidth === previous.contentWidth &&
+      contentHeight - previous.contentHeight ===
+        viewportHeight - previous.viewportHeight
+    ) {
+      return;
+    }
+
+    void globalThis.openai
+      .callTool(
+        "__codex_inline_visualization_height__",
+        { height: contentHeight, width: contentWidth },
+      )
+      .catch(() => {});
+  };
+  const scheduleHeightReport = () => {
+    if (heightReportTimer != null) {
+      return;
+    }
+    // Offscreen frames can suspend animation callbacks while their content loads.
+    heightReportTimer = globalThis.setTimeout(() => {
+      heightReportTimer = null;
+      reportHeight();
+    }, 0);
+  };
+
+  const resizeObserver = new ResizeObserver(scheduleHeightReport);
+  const observeBodyChildren = () => {
+    for (const element of document.body.children) {
+      resizeObserver.observe(element);
+    }
+  };
+  resizeObserver.observe(document.body);
+  observeBodyChildren();
+  new MutationObserver(() => {
+    observeBodyChildren();
+    scheduleHeightReport();
+  }).observe(document.body, {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    attributeFilter: ["style", "class", "height", "width"],
+  });
+  globalThis.addEventListener("resize", scheduleHeightReport);
+  reportHeight();
+})();
+</script>
+<style id="codex-visualization-document-scrollbar">html,body{scrollbar-width:none!important}html::-webkit-scrollbar,body::-webkit-scrollbar{display:none!important}</style>
+
+
+</body></html>
